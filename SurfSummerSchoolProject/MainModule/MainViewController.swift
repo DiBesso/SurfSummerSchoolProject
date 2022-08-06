@@ -8,22 +8,25 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
+    private let tab = TabBarModel.self
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let searchButton = UIBarButtonItem(image: UIImage(named: "searchButton"), style: .plain, target: self, action: #selector(getSearch(sender:)))
+        searchButton.tintColor = .black
+        navigationItem.title = tab.main.title
+        navigationItem.rightBarButtonItem = searchButton
+        
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    @objc func getSearch (sender: UIBarButtonItem) {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "Поиск"
+        searchController.searchBar.showsCancelButton = false
+        navigationItem.searchController = searchController
     }
-    */
-
+    
 }
