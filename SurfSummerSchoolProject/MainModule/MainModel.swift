@@ -15,7 +15,7 @@ final class MainModel {
     
     //MARK: - Properties
     
-    var items: [ItemModel] = [] {
+    var items: [DetailItemModel] = [] {
         didSet {
             didItemsUpdated?()
         }
@@ -24,18 +24,8 @@ final class MainModel {
     //MARK: - Methods
     
     func getPosts() {
-        items = Array(repeating: ItemModel.createDefault(), count: 100)
+        items = Array(repeating: DetailItemModel.createDefault(), count: 100)
     }
 }
 
-struct ItemModel {
-    let image: UIImage?
-    let title: String
-    var isFavorite: Bool
-    let dateCreation: String
-    let content: String
-    
-    static func createDefault() -> ItemModel {
-        .init(image: UIImage(named: "corgi"), title: "Самый милый корги", isFavorite: false, dateCreation: "12.05.2022", content: "Здесь будет какая-то очень интересная информация, но потом")
-    }
-}
+
