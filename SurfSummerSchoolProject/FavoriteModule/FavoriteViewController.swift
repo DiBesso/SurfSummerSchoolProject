@@ -26,5 +26,6 @@ final class FavoriteViewController: UIViewController {
         searchController.searchBar.placeholder = "Поиск"
         searchController.searchBar.showsCancelButton = false
         navigationItem.searchController = searchController
+        navigationController?.pushViewController(SearchViewController(), animated: true)
     }
 }

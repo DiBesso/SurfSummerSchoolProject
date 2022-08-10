@@ -21,6 +21,11 @@
 		A43C030828A3848C001685BF /* MainItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C030628A3848C001685BF /* MainItemCollectionViewCell.swift */; };
 		A43C030928A3848C001685BF /* MainItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43C030728A3848C001685BF /* MainItemCollectionViewCell.xib */; };
 		A43C030C28A384C4001685BF /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C030B28A384C4001685BF /* MainModel.swift */; };
+		A43C031028A3CE26001685BF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C030E28A3CE26001685BF /* SearchViewController.swift */; };
+		A43C031128A3CE26001685BF /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43C030F28A3CE26001685BF /* SearchViewController.xib */; };
+		A43C031328A3CE3E001685BF /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C031228A3CE3D001685BF /* SearchPresenter.swift */; };
+		A43C031528A3CFFA001685BF /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C031428A3CFFA001685BF /* SearchModel.swift */; };
+		A43C031728A3D5BF001685BF /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C031628A3D5BF001685BF /* SearchProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +45,11 @@
 		A43C030628A3848C001685BF /* MainItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		A43C030728A3848C001685BF /* MainItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		A43C030B28A384C4001685BF /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		A43C030E28A3CE26001685BF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A43C030F28A3CE26001685BF /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		A43C031228A3CE3D001685BF /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		A43C031428A3CFFA001685BF /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		A43C031628A3D5BF001685BF /* SearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +86,7 @@
 				A43C02E7289A94BF001685BF /* Assets.xcassets */,
 				A43C02E9289A94BF001685BF /* LaunchScreen.storyboard */,
 				A43C02EC289A94BF001685BF /* Info.plist */,
+				A43C030D28A3CDE3001685BF /* SearchModule */,
 				A43C0303289E864F001685BF /* TabBar */,
 				A43C02FF289E8593001685BF /* FavoriteModule */,
 				A43C0300289E85B0001685BF /* ProfileModule */,
@@ -129,6 +140,18 @@
 				A43C030728A3848C001685BF /* MainItemCollectionViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		A43C030D28A3CDE3001685BF /* SearchModule */ = {
+			isa = PBXGroup;
+			children = (
+				A43C030E28A3CE26001685BF /* SearchViewController.swift */,
+				A43C030F28A3CE26001685BF /* SearchViewController.xib */,
+				A43C031228A3CE3D001685BF /* SearchPresenter.swift */,
+				A43C031428A3CFFA001685BF /* SearchModel.swift */,
+				A43C031628A3D5BF001685BF /* SearchProtocols.swift */,
+			);
+			path = SearchModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +218,7 @@
 				A43C02FE289E858B001685BF /* FavoriteViewController.xib in Resources */,
 				A43C02FA289E857B001685BF /* ProfileViewController.xib in Resources */,
 				A43C02F5289E855B001685BF /* MainViewController.xib in Resources */,
+				A43C031128A3CE26001685BF /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,8 +231,12 @@
 			files = (
 				A43C030C28A384C4001685BF /* MainModel.swift in Sources */,
 				A43C030828A3848C001685BF /* MainItemCollectionViewCell.swift in Sources */,
+				A43C031328A3CE3E001685BF /* SearchPresenter.swift in Sources */,
 				A43C0305289E869F001685BF /* TabBarConfiguration.swift in Sources */,
+				A43C031028A3CE26001685BF /* SearchViewController.swift in Sources */,
 				A43C02F4289E855B001685BF /* MainViewController.swift in Sources */,
+				A43C031528A3CFFA001685BF /* SearchModel.swift in Sources */,
+				A43C031728A3D5BF001685BF /* SearchProtocols.swift in Sources */,
 				A43C02F9289E857B001685BF /* ProfileViewController.swift in Sources */,
 				A43C02DF289A94BD001685BF /* AppDelegate.swift in Sources */,
 				A43C02FD289E858B001685BF /* FavoriteViewController.swift in Sources */,
