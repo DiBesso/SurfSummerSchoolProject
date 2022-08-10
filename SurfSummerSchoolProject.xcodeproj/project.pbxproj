@@ -18,6 +18,9 @@
 		A43C02FE289E858B001685BF /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43C02FC289E858B001685BF /* FavoriteViewController.xib */; };
 		A43C0302289E8648001685BF /* TabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C0301289E8648001685BF /* TabBarModel.swift */; };
 		A43C0305289E869F001685BF /* TabBarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C0304289E869F001685BF /* TabBarConfiguration.swift */; };
+		A43C030828A3848C001685BF /* MainItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C030628A3848C001685BF /* MainItemCollectionViewCell.swift */; };
+		A43C030928A3848C001685BF /* MainItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43C030728A3848C001685BF /* MainItemCollectionViewCell.xib */; };
+		A43C030C28A384C4001685BF /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C030B28A384C4001685BF /* MainModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		A43C02FC289E858B001685BF /* FavoriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
 		A43C0301289E8648001685BF /* TabBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarModel.swift; sourceTree = "<group>"; };
 		A43C0304289E869F001685BF /* TabBarConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarConfiguration.swift; sourceTree = "<group>"; };
+		A43C030628A3848C001685BF /* MainItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		A43C030728A3848C001685BF /* MainItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainItemCollectionViewCell.xib; sourceTree = "<group>"; };
+		A43C030B28A384C4001685BF /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +87,10 @@
 		A43C02F6289E8565001685BF /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
+				A43C030A28A38498001685BF /* Cells */,
 				A43C02F2289E855B001685BF /* MainViewController.swift */,
 				A43C02F3289E855B001685BF /* MainViewController.xib */,
+				A43C030B28A384C4001685BF /* MainModel.swift */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -112,6 +120,15 @@
 				A43C0304289E869F001685BF /* TabBarConfiguration.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		A43C030A28A38498001685BF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A43C030628A3848C001685BF /* MainItemCollectionViewCell.swift */,
+				A43C030728A3848C001685BF /* MainItemCollectionViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A43C02EB289A94BF001685BF /* LaunchScreen.storyboard in Resources */,
+				A43C030928A3848C001685BF /* MainItemCollectionViewCell.xib in Resources */,
 				A43C02E8289A94BF001685BF /* Assets.xcassets in Resources */,
 				A43C02FE289E858B001685BF /* FavoriteViewController.xib in Resources */,
 				A43C02FA289E857B001685BF /* ProfileViewController.xib in Resources */,
@@ -187,6 +205,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A43C030C28A384C4001685BF /* MainModel.swift in Sources */,
+				A43C030828A3848C001685BF /* MainItemCollectionViewCell.swift in Sources */,
 				A43C0305289E869F001685BF /* TabBarConfiguration.swift in Sources */,
 				A43C02F4289E855B001685BF /* MainViewController.swift in Sources */,
 				A43C02F9289E857B001685BF /* ProfileViewController.swift in Sources */,
