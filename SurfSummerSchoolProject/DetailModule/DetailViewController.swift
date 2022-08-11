@@ -5,6 +5,7 @@
 //  Created by Дмитрий Бессонов on 10.08.2022.
 //
 
+import Foundation
 import UIKit
 
 class DetailViewController: UIViewController, UIGestureRecognizerDelegate {
@@ -16,19 +17,44 @@ class DetailViewController: UIViewController, UIGestureRecognizerDelegate {
     // MARK: - Properties
     
     var model: DetailItemModel?
+    private let tab = TabBarModel.self
     
     // MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         configureAppearance()
         tableView.reloadData()
+        setSearchButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureNavigationBar()
     }
+    
+    // MARK: - Search Methods
+    
+    func setSearchButton() {
+        let searchButton = UIBarButtonItem(image: UIImage(named: "searchButton"), style: .plain, target: self, action: #selector(getSearch(sender:)))
+        searchButton.tintColor = .black
+        navigationItem.title = tab.main.title
+        navigationItem.rightBarButtonItem = searchButton
+        
+        
+    }
+    
+    @objc func getSearch (sender: UIBarButtonItem) {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "Поиск"
+//        searchController.searchBar.showsCancelButton = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+        navigationController?.pushViewController(SearchViewController(), animated: true)
+        definesPresentationContext = true
+    }
 }
+
+
 // MARK: - Private Methods
 
 private extension DetailViewController {

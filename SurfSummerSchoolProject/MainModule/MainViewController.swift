@@ -52,9 +52,11 @@ class MainViewController: UIViewController {
     @objc func getSearch (sender: UIBarButtonItem) {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Поиск"
-        searchController.searchBar.showsCancelButton = false
+//        searchController.searchBar.showsCancelButton = false
+//        searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
         navigationController?.pushViewController(SearchViewController(), animated: true)
+        definesPresentationContext = true
     }
 }
 

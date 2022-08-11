@@ -128,8 +128,8 @@
 		A43C02FF289E8593001685BF /* FavoriteModule */ = {
 			isa = PBXGroup;
 			children = (
-				A43C02FC289E858B001685BF /* FavoriteViewController.xib */,
 				A43C02FB289E858B001685BF /* FavoriteViewController.swift */,
+				A43C02FC289E858B001685BF /* FavoriteViewController.xib */,
 			);
 			path = FavoriteModule;
 			sourceTree = "<group>";
