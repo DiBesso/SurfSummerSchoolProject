@@ -35,6 +35,8 @@
 		A43C032B28A42013001685BF /* DetailTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C032928A42013001685BF /* DetailTextTableViewCell.swift */; };
 		A43C032C28A42013001685BF /* DetailTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43C032A28A42013001685BF /* DetailTextTableViewCell.xib */; };
 		A43C032E28A423B6001685BF /* DetailItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C032D28A423B5001685BF /* DetailItemModel.swift */; };
+		A43C033228A517F5001685BF /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C033028A517F5001685BF /* FavoriteTableViewCell.swift */; };
+		A43C033328A517F5001685BF /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43C033128A517F5001685BF /* FavoriteTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		A43C032928A42013001685BF /* DetailTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextTableViewCell.swift; sourceTree = "<group>"; };
 		A43C032A28A42013001685BF /* DetailTextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTextTableViewCell.xib; sourceTree = "<group>"; };
 		A43C032D28A423B5001685BF /* DetailItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemModel.swift; sourceTree = "<group>"; };
+		A43C033028A517F5001685BF /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		A43C033128A517F5001685BF /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,7 @@
 		A43C02FF289E8593001685BF /* FavoriteModule */ = {
 			isa = PBXGroup;
 			children = (
+				A43C032F28A517C0001685BF /* Cells */,
 				A43C02FB289E858B001685BF /* FavoriteViewController.swift */,
 				A43C02FC289E858B001685BF /* FavoriteViewController.xib */,
 			);
@@ -221,6 +226,15 @@
 			path = TextCell;
 			sourceTree = "<group>";
 		};
+		A43C032F28A517C0001685BF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A43C033028A517F5001685BF /* FavoriteTableViewCell.swift */,
+				A43C033128A517F5001685BF /* FavoriteTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -284,6 +298,7 @@
 				A43C030928A3848C001685BF /* MainItemCollectionViewCell.xib in Resources */,
 				A43C032728A41D55001685BF /* DetailTitleTableViewCell.xib in Resources */,
 				A43C02E8289A94BF001685BF /* Assets.xcassets in Resources */,
+				A43C033328A517F5001685BF /* FavoriteTableViewCell.xib in Resources */,
 				A43C031C28A3FB13001685BF /* DetailViewController.xib in Resources */,
 				A43C032C28A42013001685BF /* DetailTextTableViewCell.xib in Resources */,
 				A43C02FE289E858B001685BF /* FavoriteViewController.xib in Resources */,
@@ -313,6 +328,7 @@
 				A43C031728A3D5BF001685BF /* SearchProtocols.swift in Sources */,
 				A43C02F9289E857B001685BF /* ProfileViewController.swift in Sources */,
 				A43C032628A41D55001685BF /* DetailTitleTableViewCell.swift in Sources */,
+				A43C033228A517F5001685BF /* FavoriteTableViewCell.swift in Sources */,
 				A43C032128A41A1A001685BF /* DetailImageTableViewCell.swift in Sources */,
 				A43C02DF289A94BD001685BF /* AppDelegate.swift in Sources */,
 				A43C02FD289E858B001685BF /* FavoriteViewController.swift in Sources */,

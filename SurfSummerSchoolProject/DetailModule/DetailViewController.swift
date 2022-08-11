@@ -31,27 +31,7 @@ class DetailViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewWillAppear(animated)
         configureNavigationBar()
     }
-    
-    // MARK: - Search Methods
-    
-    func setSearchButton() {
-        let searchButton = UIBarButtonItem(image: UIImage(named: "searchButton"), style: .plain, target: self, action: #selector(getSearch(sender:)))
-        searchButton.tintColor = .black
-        navigationItem.title = tab.main.title
-        navigationItem.rightBarButtonItem = searchButton
-        
-        
-    }
-    
-    @objc func getSearch (sender: UIBarButtonItem) {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.placeholder = "Поиск"
-//        searchController.searchBar.showsCancelButton = false
-        searchController.obscuresBackgroundDuringPresentation = false
-        navigationItem.searchController = searchController
-        navigationController?.pushViewController(SearchViewController(), animated: true)
-        definesPresentationContext = true
-    }
+   
 }
 
 
@@ -73,6 +53,25 @@ private extension DetailViewController {
             navigationController?.interactivePopGestureRecognizer?.delegate = self
         }
     
+    func setSearchButton() {
+        let searchButton = UIBarButtonItem(image: UIImage(named: "searchButton"), style: .plain, target: self, action: #selector(getSearch(sender:)))
+        searchButton.tintColor = .black
+        navigationItem.title = tab.main.title
+        navigationItem.rightBarButtonItem = searchButton
+        
+        
+    }
+    
+    @objc func getSearch (sender: UIBarButtonItem) {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "Поиск"
+//        searchController.searchBar.showsCancelButton = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+        navigationController?.pushViewController(SearchViewController(), animated: true)
+        definesPresentationContext = true
+    }
+    
     func configureTableView() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -92,6 +91,7 @@ private extension DetailViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
     }
+    
 }
 
 // MARK: - UITableViewDataSource
