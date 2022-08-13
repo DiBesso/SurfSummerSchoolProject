@@ -1,40 +1,37 @@
 //
-//  FavoriteTableViewCell.swift
+//  FavoriteCollectionViewCell.swift
 //  SurfSummerSchoolProject
 //
-//  Created by Дмитрий Бессонов on 11.08.2022.
+//  Created by Дмитрий Бессонов on 13.08.2022.
 //
 
 import UIKit
 
-class FavoriteTableViewCell: UITableViewCell {
+class FavoriteCollectionViewCell: UICollectionViewCell {
 
-// MARK: - Views
-    
-    @IBOutlet private weak var cartImageView: UIImageView!
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var dateLabel: UILabel!
-    @IBOutlet private weak var contentLabel: UILabel!
-    @IBOutlet private weak var favoriteButton: UIButton!
-    
-    private let tableView = UITableView()
-    
     // MARK: - Constants
     private enum Constants {
         static let fillHeartImage = UIImage(named: "heartFill")
         static let heartImage = UIImage(named: "heart")
     }
     
+    // MARK: - Views
+        
+        @IBOutlet private weak var cartImageView: UIImageView!
+        @IBOutlet private weak var titleLabel: UILabel!
+        @IBOutlet private weak var dateLabel: UILabel!
+        @IBOutlet private weak var contentLabel: UILabel!
+        @IBOutlet private weak var favoriteButton: UIButton!
+    
+    // MARK: - Events
+    var didFavoritesTapped: (() -> Void)?
+
     // MARK: - Calculated
     var buttonImage: UIImage? {
         return isFavorite ? Constants.fillHeartImage : Constants.heartImage
     }
     
-    // MARK: - Events
-    var didFavoritesTapped: (() -> Void)?
-    
     // MARK: - Properties
-    
     var model: DetailItemModel?
     
     
@@ -72,27 +69,26 @@ class FavoriteTableViewCell: UITableViewCell {
         isFavorite.toggle()
     }
     
-    // MARK: - UITableViewCell
     
     override func awakeFromNib() {
         super.awakeFromNib()
         configureAppearance()
-
     }
 
-    private func configureAppearance() {
-        
-        selectionStyle = .none
+}
+
+private extension FavoriteCollectionViewCell {
+    
+    func configureAppearance() {
+
         contentLabel.font = .systemFont(ofSize: 12, weight: .light)
         contentLabel.textColor = .black
-        contentLabel.numberOfLines = 0
+        contentLabel.numberOfLines = 1
         
-        selectionStyle = .none
         titleLabel.font = .systemFont(ofSize: 16)
         dateLabel.font = .systemFont(ofSize: 10)
         dateLabel.textColor = UIColor(displayP3Red: 0xB3 / 255, green: 0xB3 / 255, blue: 0xB3 / 255, alpha: 1)
         
-        selectionStyle = .none
         cartImageView.layer.cornerRadius = 12
         cartImageView.contentMode = .scaleAspectFill
     }

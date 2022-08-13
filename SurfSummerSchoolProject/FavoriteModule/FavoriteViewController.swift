@@ -9,21 +9,35 @@ import UIKit
 
 final class FavoriteViewController: UIViewController {
     
-    private let tableView = UITableView()
+    // MARK: - Constants
+    private enum Constants {
+        static let horisontalInset: CGFloat = 16
+        static let spaceBetweenRows: CGFloat = 8
+        static let aspectRatioWidthForHeight = 1.16
+    }
+    
+    
+    // MARK: - Private Properties
+    private let model: MainModel = .init()
     private let tab = TabBarModel.self
-    var model: DetailItemModel?
+    
+    
+    //MARK: - Views
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    //MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureTableView()
+        configureAppearance()
+        configureModel()
+        model.getPosts()
         setSearchButton()
-        tableView.reloadData()
-        
-        
     }
     
-        func setSearchButton() {
+    func setSearchButton() {
         let searchButton = UIBarButtonItem(image: UIImage(named: "searchButton"), style: .plain, target: self, action: #selector(getSearch(sender:)))
         searchButton.tintColor = .black
         navigationItem.title = tab.favorite.title
@@ -34,43 +48,61 @@ final class FavoriteViewController: UIViewController {
     @objc func getSearch (sender: UIBarButtonItem) {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Поиск"
-//        searchController.searchBar.showsCancelButton = false
+        //        searchController.searchBar.showsCancelButton = false
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
         navigationController?.pushViewController(SearchViewController(), animated: true)
         definesPresentationContext = true
     }
+}
+// MARK: - Private Methods
+
+private extension FavoriteViewController {
     
-    func configureTableView() {
-        view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
-        tableView.register(UINib(nibName: "\(FavoriteTableViewCell.self)", bundle: .main),
-                           forCellReuseIdentifier: "\(FavoriteTableViewCell.self)")
-        tableView.dataSource = self
-        tableView.separatorStyle = .none
+    func configureAppearance() {
+        
+        collectionView.register(UINib(nibName: "\(FavoriteCollectionViewCell.self)", bundle: .main),
+                                forCellWithReuseIdentifier: "\(FavoriteCollectionViewCell.self)")
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.contentInset = .init(top: 10, left: 16, bottom: 10, right: 16)
+    }
+    
+    func configureModel() {
+        model.didItemsUpdated = { [weak self] in
+            self?.collectionView.reloadData()
+        }
     }
 }
-// MARK: - UITableViewDataSource
 
-extension FavoriteViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return model.items.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "\(FavoriteTableViewCell.self)")
-            if let cell = cell as? FavoriteTableViewCell {
-                cell.image = model?.image
-                cell.title = model?.title ?? ""
-                cell.date = model?.dateCreation ?? ""
-                cell.text = model?.content
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FavoriteCollectionViewCell.self)", for: indexPath)
+        if let cell = cell as? FavoriteCollectionViewCell {
+            let item = model.items[indexPath.row]
+            cell.image = item.image
+            cell.title = item.title
+            cell.text = item.content
+            cell.date = item.dateCreation
+            cell.isFavorite = item.isFavorite
+            cell.didFavoritesTapped = { [weak self] in
+                self?.model.items[indexPath.row].isFavorite.toggle()
             }
-        return cell ?? UITableViewCell()
+        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemWidth = (view.frame.width - Constants.horisontalInset * 2)
+        return CGSize(width: itemWidth, height: Constants.aspectRatioWidthForHeight * itemWidth)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return Constants.spaceBetweenRows
     }
 }
