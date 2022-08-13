@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailTextCell: UITableViewCell {
+class DetailTextTableViewCell: UITableViewCell {
 
     // MARK: - Views
     @IBOutlet private weak var contentLabel: UILabel!
