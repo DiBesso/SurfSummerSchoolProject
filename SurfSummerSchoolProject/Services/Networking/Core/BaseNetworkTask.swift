@@ -25,9 +25,9 @@ struct BaseNetworkTask<AbstractInput: Encodable, AbstractOutput: Decodable>: Net
         URLCache.shared
     }
 
-//    var tokenStorage: TokenStorage {
-//        BaseTokenStorage()
-//    }
+    var tokenStorage: TokenStorage {
+        BaseTokenStorage()
+    }
 
     // MARK: - Initializtion
     init(inNeedInjectToken: Bool, method: NetworkMethod, path: String) {
@@ -75,14 +75,14 @@ struct BaseNetworkTask<AbstractInput: Encodable, AbstractOutput: Decodable>: Net
 
 }
 
-//// MARK: - EmptyModel
-//extension BaseNetworkTask where Input == EmptyModel {
-//
-//    func performRequest(_ onResponseWasReceived: @escaping (_ result: Result<AbstractOutput, Error>) -> Void) {
-//        performRequest(input: EmptyModel(), onResponseWasReceived)
-//    }
-//
-//}
+// MARK: - EmptyModel
+extension BaseNetworkTask where Input == EmptyModel {
+
+    func performRequest(_ onResponseWasReceived: @escaping (_ result: Result<AbstractOutput, Error>) -> Void) {
+        performRequest(input: EmptyModel(), onResponseWasReceived)
+    }
+
+}
 
 // MARK: - Cache logic
 private extension BaseNetworkTask {
@@ -129,9 +129,9 @@ private extension BaseNetworkTask {
         request.httpMethod = method.method
 
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        if isNeedInjectToken {
-//            request.addValue("Token \(try tokenStorage.getToken().token)", forHTTPHeaderField: "Authorization")
-//        }
+        if isNeedInjectToken {
+            request.addValue("Token \(try tokenStorage.getToken().token)", forHTTPHeaderField: "Authorization")
+        }
 
         return request
     }

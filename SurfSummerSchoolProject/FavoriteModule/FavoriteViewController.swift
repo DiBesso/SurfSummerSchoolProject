@@ -33,7 +33,7 @@ final class FavoriteViewController: UIViewController {
         
         configureAppearance()
         configureModel()
-        model.getPosts()
+        model.loadPosts()
         setSearchButton()
     }
     
@@ -86,7 +86,7 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FavoriteCollectionViewCell.self)", for: indexPath)
         if let cell = cell as? FavoriteCollectionViewCell {
             let item = model.items[indexPath.row]
-            cell.image = item.image
+            cell.imageUrlInString = item.imageUrlInString
             cell.title = item.title
             cell.text = item.content
             cell.date = item.dateCreation
