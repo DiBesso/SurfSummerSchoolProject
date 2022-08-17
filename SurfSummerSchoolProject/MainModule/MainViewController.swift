@@ -26,13 +26,13 @@ class MainViewController: UIViewController {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     
-    
+    // MARK: - Lifeсyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureApperance()
         configureModel()
-        model.getPosts()
+        model.loadPosts()
         setSearchButton()
         
         
@@ -75,11 +75,14 @@ private extension MainViewController {
     
     func configureModel() {
         model.didItemsUpdated = { [weak self] in
-            self?.collectionView.reloadData()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self?.collectionView.reloadData()
+            }
         }
     }
-    
 }
+
+// MARK: - UICollection
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -91,7 +94,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(MainItemCollectionViewCell.self)", for: indexPath)
         if let cell = cell as? MainItemCollectionViewCell {
             let item = model.items[indexPath.row]
-            cell.image = item.image
+            cell.imageUrlInString = item.imageUrlInString
             cell.title = item.title
             cell.isFavorite = item.isFavorite
             cell.didFavoritesTapped = { [weak self] in

@@ -51,9 +51,12 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
             dateLabel.text = date
         }
     }
-    var image: UIImage? {
+    var imageUrlInString: String = "" {
         didSet {
-            cartImageView.image = image
+            guard let url = URL(string: imageUrlInString) else {
+                return
+            }
+            cartImageView?.loadImage(from: url)
         }
     }
     var isFavorite: Bool = false {
