@@ -59,7 +59,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
             cartImageView?.loadImage(from: url)
         }
     }
-    var isFavorite: Bool = false {
+    var isFavorite: Bool = true {
         didSet {
             favoriteButton.setImage(buttonImage, for: .normal)
         }

@@ -114,6 +114,7 @@ extension DetailViewController: UITableViewDataSource {
             if let cell = cell as? DetailTitleTableViewCell {
                 cell.title = model?.title ?? ""
                 cell.date = model?.dateCreation ?? ""
+        
             }
             return cell ?? UITableViewCell()
         case 2:

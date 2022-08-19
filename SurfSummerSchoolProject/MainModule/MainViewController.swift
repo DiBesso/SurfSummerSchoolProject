@@ -19,13 +19,16 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Private Properties
+    private var favoriteModel: [FavoriteModel] = []
     private let model: MainModel = .init()
     private let tab = TabBarModel.self
     
     // MARK: - Views
-    
     @IBOutlet private weak var collectionView: UICollectionView!
     
+    //MARK: - Delegate
+    var favoriteVC: FavoriteViewController?
+    var delegate: saveToFavoriteDelegate!
     // MARK: - Lifeсyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +67,7 @@ class MainViewController: UIViewController {
 // MARK: - Private Methods
 private extension MainViewController {
     
+    
     func configureApperance() {
         navigationItem.title = "Главная"
         collectionView.register(UINib(nibName: "\(MainItemCollectionViewCell.self)", bundle: .main),
@@ -99,6 +103,11 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.isFavorite = item.isFavorite
             cell.didFavoritesTapped = { [weak self] in
                 self?.model.items[indexPath.row].isFavorite.toggle()
+                let isFavorite = self?.model.items[indexPath.row].isFavorite
+                let favoriteModel = FavoriteModel(imageUrlInString: cell.imageUrlInString, title: cell.title, isFavorite: isFavorite ?? true, content: cell.text ?? "", dateCreation: cell.date)
+                DataManager.shared.save(model: favoriteModel)
+                self?.delegate?.saveContent(favoriteModel)
+                self?.dismiss(animated: true)
             }
         }
         return cell
@@ -123,3 +132,4 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         navigationController?.pushViewController(vc, animated: true)
     }
 }
+

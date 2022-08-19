@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class FavoriteViewController: UIViewController {
+class FavoriteViewController: UIViewController {
     
     // MARK: - Constants
     private enum Constants {
@@ -16,27 +16,29 @@ final class FavoriteViewController: UIViewController {
         static let aspectRatioWidthForHeight = 1.16
     }
     
-    
     // MARK: - Private Properties
-    private let model: MainModel = .init()
+    private var favoriteModel: [FavoriteModel] = []
     private let tab = TabBarModel.self
     
     
     //MARK: - Views
     
+    var mainVC: MainViewController?
     @IBOutlet weak var collectionView: UICollectionView!
     
     //MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        mainVC?.delegate = self
         configureAppearance()
-        configureModel()
-        model.loadPosts()
+        favoriteModel = DataManager.shared.fetchContentInFavorite()
         setSearchButton()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+    }
     func setSearchButton() {
         let searchButton = UIBarButtonItem(image: UIImage(named: "searchButton"), style: .plain, target: self, action: #selector(getSearch(sender:)))
         searchButton.tintColor = .black
@@ -68,31 +70,27 @@ private extension FavoriteViewController {
         collectionView.contentInset = .init(top: 10, left: 16, bottom: 10, right: 16)
     }
     
-    func configureModel() {
-        model.didItemsUpdated = { [weak self] in
-            self?.collectionView.reloadData()
-        }
-    }
 }
 
 extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.items.count
+        return favoriteModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FavoriteCollectionViewCell.self)", for: indexPath)
         if let cell = cell as? FavoriteCollectionViewCell {
-            let item = model.items[indexPath.row]
+            let item = favoriteModel[indexPath.row]
             cell.imageUrlInString = item.imageUrlInString
             cell.title = item.title
             cell.text = item.content
             cell.date = item.dateCreation
             cell.isFavorite = item.isFavorite
             cell.didFavoritesTapped = { [weak self] in
-                self?.model.items[indexPath.row].isFavorite.toggle()
+                self?.favoriteModel[indexPath.row].isFavorite.toggle()
+                DataManager.shared.deleteContentFromFavorite(at: cell.tag)
             }
         }
         return cell
@@ -105,4 +103,14 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return Constants.spaceBetweenRows
     }
+}
+
+// MARK: - FavoriteProtocol
+
+extension FavoriteViewController: saveToFavoriteDelegate {
+    func saveContent(_ model: FavoriteModel) {
+        favoriteModel.append(model)
+        collectionView.reloadData()
+    }
+    
 }

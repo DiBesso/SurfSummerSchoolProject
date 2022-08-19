@@ -21,7 +21,8 @@ class MainItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var favoriteButton: UIButton!
-    
+    private weak var dateLabel: UILabel!
+    private weak var contentLabel: UILabel!
     // MARK: - Events
     var didFavoritesTapped: (() -> Void)?
 
@@ -56,9 +57,21 @@ class MainItemCollectionViewCell: UICollectionViewCell {
     var isFavorite: Bool = false {
         didSet {
             favoriteButton.setImage(buttonImage, for: .normal)
+            if isFavorite == true {
+                favoriteButton.isEnabled = false
+            }
         }
     }
-
+    var date: String = "" {
+        didSet {
+            dateLabel.text = date
+        }
+    }
+    var text: String? {
+        didSet {
+            contentLabel.text = text
+        }
+    }
     // MARK: - Actions
     
     @IBAction func favoriteAction(_ sender: UIButton) {
