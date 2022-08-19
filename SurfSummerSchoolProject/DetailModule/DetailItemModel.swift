@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct DetailItemModel: Codable {
+struct DetailItemModel {
 
     // MARK: - Internal Properties
     let imageUrlInString: String

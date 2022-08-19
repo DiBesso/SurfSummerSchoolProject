@@ -28,20 +28,20 @@ class MainViewController: UIViewController {
     
     //MARK: - Delegate
     var favoriteVC: FavoriteViewController?
-    var delegate: saveToFavoriteDelegate!
+//    var delegate: saveToFavoriteDelegate!
     // MARK: - Lifeсyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureApperance()
-        configureModel()
         model.loadPosts()
         setSearchButton()
-        
-        
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureModel()
+    }
     // MARK: - Search Methods
     
     func setSearchButton() {
@@ -103,10 +103,12 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.isFavorite = item.isFavorite
             cell.didFavoritesTapped = { [weak self] in
                 self?.model.items[indexPath.row].isFavorite.toggle()
+                let date = item.dateCreation
+                let content = item.content
                 let isFavorite = self?.model.items[indexPath.row].isFavorite
-                let favoriteModel = FavoriteModel(imageUrlInString: cell.imageUrlInString, title: cell.title, isFavorite: isFavorite ?? true, content: cell.text ?? "", dateCreation: cell.date)
+                let favoriteModel = FavoriteModel(imageUrlInString: cell.imageUrlInString, title: cell.title, isFavorite: isFavorite ?? true, content: content, dateCreation: date)
                 DataManager.shared.save(model: favoriteModel)
-                self?.delegate?.saveContent(favoriteModel)
+//                self?.delegate?.saveContent(favoriteModel)
                 self?.dismiss(animated: true)
             }
         }

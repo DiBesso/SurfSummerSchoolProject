@@ -19,7 +19,7 @@ class FavoriteViewController: UIViewController {
     // MARK: - Private Properties
     private var favoriteModel: [FavoriteModel] = []
     private let tab = TabBarModel.self
-    
+    var didItemsUpdated: (() -> Void)?
     
     //MARK: - Views
     
@@ -30,14 +30,15 @@ class FavoriteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainVC?.delegate = self
+//        mainVC?.delegate = self
         configureAppearance()
-        favoriteModel = DataManager.shared.fetchContentInFavorite()
         setSearchButton()
+        configureModel()
+        favoriteModel = DataManager.shared.fetchContentInFavorite()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView.reloadData()
+        configureModel()
     }
     func setSearchButton() {
         let searchButton = UIBarButtonItem(image: UIImage(named: "searchButton"), style: .plain, target: self, action: #selector(getSearch(sender:)))
@@ -61,19 +62,33 @@ class FavoriteViewController: UIViewController {
 
 private extension FavoriteViewController {
     
+    func configureModel() {
+        didItemsUpdated = { [weak self] in
+            self?.collectionView.reloadData()
+//            DispatchQueue.main.asyncAfter(deadline: .now()) {
+//            }
+        }
+    }
+
+    func showAlert( index: Int) {
+        let title = "Внимание"
+        let alert = UIAlertController.createAlertController(withTitle: title)
+        alert.addAction(UIAlertAction(title: "Нет", style: UIAlertAction.Style.cancel))
+        alert.addAction(UIAlertAction(title: "Да, точно", style: .default, handler: { _ in
+            DataManager.shared.deleteContentFromFavorite(at: index)
+        }))
+        present(alert, animated: true)
+    }
     func configureAppearance() {
-        
         collectionView.register(UINib(nibName: "\(FavoriteCollectionViewCell.self)", bundle: .main),
                                 forCellWithReuseIdentifier: "\(FavoriteCollectionViewCell.self)")
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.contentInset = .init(top: 10, left: 16, bottom: 10, right: 16)
     }
-    
 }
 
 extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return favoriteModel.count
@@ -82,7 +97,7 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FavoriteCollectionViewCell.self)", for: indexPath)
         if let cell = cell as? FavoriteCollectionViewCell {
-            let item = favoriteModel[indexPath.row]
+            let item = favoriteModel[indexPath.item]
             cell.imageUrlInString = item.imageUrlInString
             cell.title = item.title
             cell.text = item.content
@@ -90,7 +105,7 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
             cell.isFavorite = item.isFavorite
             cell.didFavoritesTapped = { [weak self] in
                 self?.favoriteModel[indexPath.row].isFavorite.toggle()
-                DataManager.shared.deleteContentFromFavorite(at: cell.tag)
+                self?.showAlert(index: cell.tag)
             }
         }
         return cell
@@ -105,12 +120,12 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
     }
 }
 
-// MARK: - FavoriteProtocol
-
-extension FavoriteViewController: saveToFavoriteDelegate {
-    func saveContent(_ model: FavoriteModel) {
-        favoriteModel.append(model)
-        collectionView.reloadData()
-    }
-    
-}
+//// MARK: - FavoriteProtocol
+//
+//extension FavoriteViewController: saveToFavoriteDelegate {
+//    func saveContent(_ model: FavoriteModel) {
+//        favoriteModel.append(model)
+//        collectionView.reloadData()
+//    }
+//
+//}

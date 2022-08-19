@@ -58,7 +58,7 @@ class MainItemCollectionViewCell: UICollectionViewCell {
         didSet {
             favoriteButton.setImage(buttonImage, for: .normal)
             if isFavorite == true {
-                favoriteButton.isEnabled = false
+                favoriteButton.isEnabled = true
             }
         }
     }

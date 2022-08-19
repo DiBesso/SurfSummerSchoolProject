@@ -28,6 +28,7 @@
 		A42A798028AE27E800BB1C03 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42A797F28AE27E800BB1C03 /* DataManager.swift */; };
 		A42A798228AE56F400BB1C03 /* FavoriteProrocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42A798128AE56F400BB1C03 /* FavoriteProrocol.swift */; };
 		A42A798428AE5D7300BB1C03 /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42A798328AE5D7300BB1C03 /* FavoriteModel.swift */; };
+		A42A798628B0080300BB1C03 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42A798528B0080300BB1C03 /* AlertController.swift */; };
 		A43C02DF289A94BD001685BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C02DE289A94BD001685BF /* AppDelegate.swift */; };
 		A43C02E8289A94BF001685BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A43C02E7289A94BF001685BF /* Assets.xcassets */; };
 		A43C02EB289A94BF001685BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A43C02E9289A94BF001685BF /* LaunchScreen.storyboard */; };
@@ -78,6 +79,7 @@
 		A42A797F28AE27E800BB1C03 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		A42A798128AE56F400BB1C03 /* FavoriteProrocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProrocol.swift; sourceTree = "<group>"; };
 		A42A798328AE5D7300BB1C03 /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
+		A42A798528B0080300BB1C03 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		A43C02DB289A94BD001685BF /* SurfSummerSchoolProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfSummerSchoolProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A43C02DE289A94BD001685BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A43C02E7289A94BF001685BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				A42A797F28AE27E800BB1C03 /* DataManager.swift */,
 				A42A798128AE56F400BB1C03 /* FavoriteProrocol.swift */,
 				A42A798328AE5D7300BB1C03 /* FavoriteModel.swift */,
+				A42A798528B0080300BB1C03 /* AlertController.swift */,
 			);
 			path = FavoriteModule;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				A42A796628A8D65500BB1C03 /* AuthResponceModel.swift in Sources */,
 				A42A796828A8D66700BB1C03 /* AuthRequestModel.swift in Sources */,
 				A42A797E28ABCB1A00BB1C03 /* UIImageView+ImageLoader.swift in Sources */,
+				A42A798628B0080300BB1C03 /* AlertController.swift in Sources */,
 				A43C033628A77A36001685BF /* FavoriteCollectionViewCell.swift in Sources */,
 				A42A795628A7C58500BB1C03 /* DetailImageTableViewCell.swift in Sources */,
 				A42A797C28ABCAE700BB1C03 /* ImageLoader.swift in Sources */,
