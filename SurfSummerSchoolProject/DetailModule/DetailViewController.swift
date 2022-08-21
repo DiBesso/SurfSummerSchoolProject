@@ -53,6 +53,7 @@ private extension DetailViewController {
             navigationController?.interactivePopGestureRecognizer?.delegate = self
         }
     
+    //MARK: - Search Methods
     func setSearchButton() {
         let searchButton = UIBarButtonItem(image: UIImage(named: "searchButton"), style: .plain, target: self, action: #selector(getSearch(sender:)))
         searchButton.tintColor = .black
@@ -65,7 +66,6 @@ private extension DetailViewController {
     @objc func getSearch (sender: UIBarButtonItem) {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Поиск"
-//        searchController.searchBar.showsCancelButton = false
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
         navigationController?.pushViewController(SearchViewController(), animated: true)

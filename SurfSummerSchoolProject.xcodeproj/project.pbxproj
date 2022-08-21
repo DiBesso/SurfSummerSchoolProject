@@ -238,13 +238,13 @@
 		A43C02FF289E8593001685BF /* FavoriteModule */ = {
 			isa = PBXGroup;
 			children = (
+				A4D1A36228B253AA00574CFA /* FavoriteProtocol */,
+				A4D1A36128B2537D00574CFA /* FavoriteModel */,
+				A4D1A36028B2536E00574CFA /* Alert */,
 				A43C032F28A517C0001685BF /* Cells */,
 				A43C02FB289E858B001685BF /* FavoriteViewController.swift */,
 				A43C02FC289E858B001685BF /* FavoriteViewController.xib */,
 				A42A797F28AE27E800BB1C03 /* DataManager.swift */,
-				A42A798128AE56F400BB1C03 /* FavoriteProrocol.swift */,
-				A42A798328AE5D7300BB1C03 /* FavoriteModel.swift */,
-				A42A798528B0080300BB1C03 /* AlertController.swift */,
 			);
 			path = FavoriteModule;
 			sourceTree = "<group>";
@@ -343,6 +343,30 @@
 				A43C033528A77A36001685BF /* FavoriteCollectionViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		A4D1A36028B2536E00574CFA /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				A42A798528B0080300BB1C03 /* AlertController.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		A4D1A36128B2537D00574CFA /* FavoriteModel */ = {
+			isa = PBXGroup;
+			children = (
+				A42A798328AE5D7300BB1C03 /* FavoriteModel.swift */,
+			);
+			path = FavoriteModel;
+			sourceTree = "<group>";
+		};
+		A4D1A36228B253AA00574CFA /* FavoriteProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				A42A798128AE56F400BB1C03 /* FavoriteProrocol.swift */,
+			);
+			path = FavoriteProtocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -27,10 +27,9 @@ class FavoriteViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     //MARK: - UIViewController
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        mainVC?.delegate = self
+        mainVC?.delegate = self
         configureAppearance()
         setSearchButton()
         configureModel()
@@ -40,6 +39,8 @@ class FavoriteViewController: UIViewController {
         super.viewWillAppear(animated)
         configureModel()
     }
+    
+    //MARK: - Search Methods
     func setSearchButton() {
         let searchButton = UIBarButtonItem(image: UIImage(named: "searchButton"), style: .plain, target: self, action: #selector(getSearch(sender:)))
         searchButton.tintColor = .black
@@ -51,7 +52,6 @@ class FavoriteViewController: UIViewController {
     @objc func getSearch (sender: UIBarButtonItem) {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Поиск"
-        //        searchController.searchBar.showsCancelButton = false
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
         navigationController?.pushViewController(SearchViewController(), animated: true)
@@ -64,27 +64,30 @@ private extension FavoriteViewController {
     
     func configureModel() {
         didItemsUpdated = { [weak self] in
-            self?.collectionView.reloadData()
-//            DispatchQueue.main.asyncAfter(deadline: .now()) {
-//            }
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                self?.collectionView.reloadData()
+            }
         }
     }
-
-    func showAlert( index: Int) {
-        let title = "Внимание"
-        let alert = UIAlertController.createAlertController(withTitle: title)
-        alert.addAction(UIAlertAction(title: "Нет", style: UIAlertAction.Style.cancel))
-        alert.addAction(UIAlertAction(title: "Да, точно", style: .default, handler: { _ in
-            DataManager.shared.deleteContentFromFavorite(at: index)
-        }))
-        present(alert, animated: true)
-    }
+    
     func configureAppearance() {
         collectionView.register(UINib(nibName: "\(FavoriteCollectionViewCell.self)", bundle: .main),
                                 forCellWithReuseIdentifier: "\(FavoriteCollectionViewCell.self)")
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.contentInset = .init(top: 10, left: 16, bottom: 10, right: 16)
+    }
+    
+    //MARK: - Alert
+    func showAlert( index: Int) {
+        let title = "Внимание"
+        let alert = UIAlertController.createAlertController(withTitle: title)
+        alert.addAction(UIAlertAction(title: "Нет", style: UIAlertAction.Style.cancel))
+        alert.addAction(UIAlertAction(title: "Да, точно", style: .default, handler: { _ in
+            DataManager.shared.deleteContentFromFavorite(at: index)
+            
+        }))
+        present(alert, animated: true)
     }
 }
 
@@ -104,8 +107,11 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
             cell.date = item.dateCreation
             cell.isFavorite = item.isFavorite
             cell.didFavoritesTapped = { [weak self] in
-                self?.favoriteModel[indexPath.row].isFavorite.toggle()
-                self?.showAlert(index: cell.tag)
+                if self?.favoriteModel[indexPath.row].isFavorite == true {
+                    self?.showAlert(index: cell.tag)
+                    self?.favoriteModel[indexPath.row].isFavorite.toggle()
+                    self?.configureModel()
+                }
             }
         }
         return cell
@@ -120,12 +126,12 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
     }
 }
 
-//// MARK: - FavoriteProtocol
-//
-//extension FavoriteViewController: saveToFavoriteDelegate {
-//    func saveContent(_ model: FavoriteModel) {
-//        favoriteModel.append(model)
-//        collectionView.reloadData()
-//    }
-//
-//}
+// MARK: - FavoriteProtocol
+
+extension FavoriteViewController: saveToFavoriteDelegate {
+    func saveContent(_ model: FavoriteModel) {
+        favoriteModel.append(model)
+        collectionView.reloadData()
+    }
+    
+}

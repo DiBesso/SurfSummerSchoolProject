@@ -27,13 +27,7 @@ final class DataManager {
         userDefaults.set(data, forKey: favoriteKey)
     }
     
-//    func remove(cell: UICollectionViewCell) {
-//        var contentInFavorite = deleteContentFromFavorite()
-//        contentInFavorite.remove(at: cell.tag)
-//
-//        guard let data = try? JSONEncoder().encode(contentInFavorite) else { return }
-//        userDefaults.set(data, forKey: favoriteKey)
-//    }
+    
     func fetchContentInFavorite() -> [FavoriteModel] {
         guard let data = userDefaults.object(forKey: favoriteKey) as? Data else { return [] }
         guard let contentInFavorite = try? JSONDecoder().decode([FavoriteModel].self, from: data) else { return [] }
@@ -43,8 +37,8 @@ final class DataManager {
     
     func deleteContentFromFavorite(at index: Int) {
         var contentInFavorite = fetchContentInFavorite()
-        var content = contentInFavorite.remove(at: index)
-        content.isFavorite.toggle()
+        _ = contentInFavorite.remove(at: index)
+//        content.isFavorite.toggle()
         
         guard let data = try? JSONEncoder().encode(contentInFavorite) else { return }
         userDefaults.set(data, forKey: favoriteKey)

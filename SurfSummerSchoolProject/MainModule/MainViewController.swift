@@ -28,7 +28,7 @@ class MainViewController: UIViewController {
     
     //MARK: - Delegate
     var favoriteVC: FavoriteViewController?
-//    var delegate: saveToFavoriteDelegate!
+    var delegate: saveToFavoriteDelegate!
     // MARK: - Lifeсyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,21 +43,16 @@ class MainViewController: UIViewController {
         configureModel()
     }
     // MARK: - Search Methods
-    
     func setSearchButton() {
         let searchButton = UIBarButtonItem(image: UIImage(named: "searchButton"), style: .plain, target: self, action: #selector(getSearch(sender:)))
         searchButton.tintColor = .black
         navigationItem.title = tab.main.title
         navigationItem.rightBarButtonItem = searchButton
-        
-        
     }
     
     @objc func getSearch (sender: UIBarButtonItem) {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Поиск"
-        //        searchController.searchBar.showsCancelButton = false
-        //        searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
         navigationController?.pushViewController(SearchViewController(), animated: true)
         definesPresentationContext = true
@@ -108,7 +103,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
                 let isFavorite = self?.model.items[indexPath.row].isFavorite
                 let favoriteModel = FavoriteModel(imageUrlInString: cell.imageUrlInString, title: cell.title, isFavorite: isFavorite ?? true, content: content, dateCreation: date)
                 DataManager.shared.save(model: favoriteModel)
-//                self?.delegate?.saveContent(favoriteModel)
+                self?.delegate?.saveContent(favoriteModel)
                 self?.dismiss(animated: true)
             }
         }
