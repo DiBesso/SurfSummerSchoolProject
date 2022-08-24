@@ -32,11 +32,11 @@ class FavoriteViewController: UIViewController {
         mainVC?.delegate = self
         configureAppearance()
         setSearchButton()
-        configureModel()
-        favoriteModel = DataManager.shared.fetchContentInFavorite()
+//        configureModel()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+                favoriteModel = DataManager.shared.fetchContentInFavorite()
         configureModel()
     }
     
@@ -85,7 +85,6 @@ private extension FavoriteViewController {
         alert.addAction(UIAlertAction(title: "Нет", style: UIAlertAction.Style.cancel))
         alert.addAction(UIAlertAction(title: "Да, точно", style: .default, handler: { _ in
             DataManager.shared.deleteContentFromFavorite(at: index)
-            
         }))
         present(alert, animated: true)
     }
@@ -107,16 +106,21 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
             cell.date = item.dateCreation
             cell.isFavorite = item.isFavorite
             cell.didFavoritesTapped = { [weak self] in
-                if self?.favoriteModel[indexPath.row].isFavorite == true {
-                    self?.showAlert(index: cell.tag)
-                    self?.favoriteModel[indexPath.row].isFavorite.toggle()
-                    self?.configureModel()
-                }
+//                if self?.favoriteModel[indexPath.row].isFavorite == true {
+                    self?.showAlert(index: indexPath.row)
+//                    self?.favoriteModel[indexPath.row].isFavorite.toggle()
+//                    self?.configureModel()
+//                }
             }
         }
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        self.collectionView.performBatchUpdates({
+            self.collectionView.deleteItems(at: [indexPath])
+            self.collectionView.reloadData()
+//        })
+    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemWidth = (view.frame.width - Constants.horisontalInset * 2)
         return CGSize(width: itemWidth, height: Constants.aspectRatioWidthForHeight * itemWidth)
@@ -131,7 +135,6 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
 extension FavoriteViewController: saveToFavoriteDelegate {
     func saveContent(_ model: FavoriteModel) {
         favoriteModel.append(model)
-        collectionView.reloadData()
+//        self.collectionView.reloadData()
     }
-    
 }

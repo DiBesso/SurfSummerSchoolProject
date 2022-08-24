@@ -62,6 +62,9 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
     var isFavorite: Bool = true {
         didSet {
             favoriteButton.setImage(buttonImage, for: .normal)
+            if isFavorite == false {
+                favoriteButton.isEnabled = true
+            }
         }
     }
     
@@ -71,7 +74,6 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
         didFavoritesTapped?()
         isFavorite.toggle()
     }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

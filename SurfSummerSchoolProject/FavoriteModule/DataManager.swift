@@ -37,8 +37,18 @@ final class DataManager {
     
     func deleteContentFromFavorite(at index: Int) {
         var contentInFavorite = fetchContentInFavorite()
-        _ = contentInFavorite.remove(at: index)
-//        content.isFavorite.toggle()
+        var content = contentInFavorite.remove(at: index)
+        content.isFavorite.toggle()
+        
+        guard let data = try? JSONEncoder().encode(contentInFavorite) else { return }
+        userDefaults.set(data, forKey: favoriteKey)
+    }
+    
+    func changeFavoriteStatus(at index: Int) {
+        var contentInFavorite = fetchContentInFavorite()
+        var content = contentInFavorite.remove(at: index)
+        content.isFavorite.toggle()
+        contentInFavorite.insert(content, at: index)
         
         guard let data = try? JSONEncoder().encode(contentInFavorite) else { return }
         userDefaults.set(data, forKey: favoriteKey)
