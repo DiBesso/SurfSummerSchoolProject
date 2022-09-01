@@ -18,9 +18,9 @@ class MainViewController: UIViewController {
         static let aspectRatioWidthForHeight = 1.46
     }
     
+    let model = MainModel.shared
     // MARK: - Private Properties
     private var favoriteModel: [FavoriteModel] = []
-    private let model: MainModel = .init()
     private let tab = TabBarModel.self
     
     // MARK: - Views
@@ -92,19 +92,26 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(MainItemCollectionViewCell.self)", for: indexPath)
         if let cell = cell as? MainItemCollectionViewCell {
-            let item = model.items[indexPath.row]
+            var item: DetailItemModel
+            item = model.items[indexPath.item]
             cell.imageUrlInString = item.imageUrlInString
             cell.title = item.title
             cell.isFavorite = item.isFavorite
             cell.didFavoritesTapped = { [weak self] in
+                do {
                 self?.model.items[indexPath.row].isFavorite.toggle()
-                let date = item.dateCreation
-                let content = item.content
-                let isFavorite = self?.model.items[indexPath.row].isFavorite
-                let favoriteModel = FavoriteModel(imageUrlInString: cell.imageUrlInString, title: cell.title, isFavorite: isFavorite ?? true, content: content, dateCreation: date)
-                DataManager.shared.save(model: favoriteModel)
-                self?.delegate?.saveContent(favoriteModel)
-                self?.dismiss(animated: true)
+                    try DataManager().save(by: item.id, new: self?.model.items[indexPath.item].isFavorite ?? false)
+                    collectionView.reloadItems(at: [indexPath])
+                } catch let error {
+                        print(error)
+                    }
+//                let date = item.dateCreation
+//                let content = item.content
+//                let isFavorite = self?.model.items[indexPath.row].isFavorite
+//                let favoriteModel = FavoriteModel(imageUrlInString: cell.imageUrlInString, title: cell.title, isFavorite: isFavorite ?? true, content: content, dateCreation: date)
+//                DataManager.shared.save(model: favoriteModel)
+//                self?.delegate?.saveContent(favoriteModel)
+//                self?.dismiss(animated: true)
             }
         }
         return cell

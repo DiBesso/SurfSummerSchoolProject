@@ -30,11 +30,11 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
     var buttonImage: UIImage? {
         return isFavorite ? Constants.fillHeartImage : Constants.heartImage
     }
-    
+
     // MARK: - Properties
     var model: DetailItemModel?
-    
-    
+
+
     var text: String? {
         didSet {
             contentLabel.text = text
@@ -72,7 +72,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
     
     @IBAction func favoriteAction(_ sender: UIButton) {
         didFavoritesTapped?()
-        isFavorite.toggle()
+//        isFavorite.toggle()
     }
     
     override func awakeFromNib() {

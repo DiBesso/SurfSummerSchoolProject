@@ -27,9 +27,9 @@ class MainItemCollectionViewCell: UICollectionViewCell {
     var didFavoritesTapped: (() -> Void)?
 
     // MARK: - Calculated
-    var buttonImage: UIImage? {
-        return isFavorite ? Constants.fillHeartImage : Constants.heartImage
-    }
+//    var buttonImage: UIImage? {
+//        return isFavorite ? Constants.fillHeartImage : Constants.heartImage
+//    }
 
     override var isHighlighted: Bool {
         didSet {
@@ -56,12 +56,18 @@ class MainItemCollectionViewCell: UICollectionViewCell {
     }
     var isFavorite: Bool = false {
         didSet {
-            favoriteButton.setImage(buttonImage, for: .normal)
-            if isFavorite == true {
-                favoriteButton.isEnabled = true
-            }
+            let image = isFavorite ? Constants.fillHeartImage : Constants.heartImage
+            favoriteButton.setImage(image , for: .normal)
         }
     }
+//    var isFavorite: Bool = false {
+//        didSet {
+//            favoriteButton.setImage(buttonImage, for: .normal)
+//            if isFavorite == true {
+//                favoriteButton.isEnabled = true
+//            }
+//        }
+//    }
     var date: String = "" {
         didSet {
             dateLabel.text = date
@@ -76,7 +82,7 @@ class MainItemCollectionViewCell: UICollectionViewCell {
     
     @IBAction func favoriteAction(_ sender: UIButton) {
         didFavoritesTapped?()
-        isFavorite.toggle()
+//        isFavorite.toggle()
     }
 
     // MARK: - UICollectionViewCell
