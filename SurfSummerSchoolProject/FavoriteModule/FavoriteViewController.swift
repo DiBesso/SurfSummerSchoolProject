@@ -17,7 +17,6 @@ class FavoriteViewController: UIViewController {
     }
     
     // MARK: - Private Properties
-    private var favoriteModel: [FavoriteModel] = []
     private var model = MainModel.shared
     private var detailModel = [DetailItemModel]()
     private let tab = TabBarModel.self
@@ -31,20 +30,13 @@ class FavoriteViewController: UIViewController {
     //MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //        mainVC?.delegate = self
-        
         configureAppearance()
         setSearchButton()
-        
-//                configureModel()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = false
         configureModel()
-        
-        //                favoriteModel = DataManager.shared.fetchContentInFavorite()
     }
     
     //MARK: - Search Methods
@@ -74,18 +66,14 @@ private extension FavoriteViewController {
             item.isFavorite == true
         })
         collectionView.reloadData()
-//        didItemsUpdated = { [weak self] in
-//            DispatchQueue.main.asyncAfter(deadline: .now()) {
-//                self?.collectionView.reloadData()
-//            }
-//        }
     }
     
     func configureAppearance() {
+
         collectionView.register(UINib(nibName: "\(FavoriteCollectionViewCell.self)", bundle: .main),
-                                forCellWithReuseIdentifier: "\(FavoriteCollectionViewCell.self)")
-                collectionView.dataSource = self
-                collectionView.delegate = self
+            forCellWithReuseIdentifier: "\(FavoriteCollectionViewCell.self)")
+        collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.contentInset = .init(top: 10, left: 16, bottom: 10, right: 16)
     }
     
@@ -111,15 +99,6 @@ private extension FavoriteViewController {
         alert.preferredAction = buttonActionAccept
         self.present(alert, animated: true)
     }
-    //    func showAlert( index: Int) {
-    //        let title = "Внимание"
-    //        let alert = UIAlertController.createAlertController(withTitle: title)
-    //        alert.addAction(UIAlertAction(title: "Нет", style: UIAlertAction.Style.cancel))
-    //        alert.addAction(UIAlertAction(title: "Да, точно", style: .default, handler: { _ in
-    //            DataManager.shared.deleteContentFromFavorite(at: index)
-    //        }))
-    //        present(alert, animated: true)
-    //    }
 }
 
 extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -138,20 +117,15 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
             cell.date = item.dateCreation
             cell.isFavorite = item.isFavorite
             cell.didFavoritesTapped = {
-                //                if self?.favoriteModel[indexPath.row].isFavorite == true {
                 self.alertForTapFavorites(forIndex: indexPath, item: item)
-                //                    self?.favoriteModel[indexPath.row].isFavorite.toggle()
-                //                    self?.configureModel()
-                //                }
             }
         }
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //        self.collectionView.performBatchUpdates({
-        self.collectionView.deleteItems(at: [indexPath])
-        self.collectionView.reloadData()
-        //        })
+        let detailViewController = DetailViewController()
+        detailViewController.model = detailModel[indexPath.item]
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemWidth = (view.frame.width - Constants.horisontalInset * 2)
@@ -162,11 +136,3 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
     }
 }
 
-// MARK: - FavoriteProtocol
-
-//extension FavoriteViewController: saveToFavoriteDelegate {
-//    func saveContent(_ model: FavoriteModel) {
-//        favoriteModel.append(model)
-////        self.collectionView.reloadData()
-//    }
-//}

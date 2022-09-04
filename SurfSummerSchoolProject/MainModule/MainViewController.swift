@@ -20,7 +20,6 @@ class MainViewController: UIViewController {
     
     let model = MainModel.shared
     // MARK: - Private Properties
-    private var favoriteModel: [FavoriteModel] = []
     private let tab = TabBarModel.self
     
     // MARK: - Views
@@ -28,7 +27,6 @@ class MainViewController: UIViewController {
     
     //MARK: - Delegate
     var favoriteVC: FavoriteViewController?
-    var delegate: saveToFavoriteDelegate!
     // MARK: - Lifeсyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,13 +103,6 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
                 } catch let error {
                         print(error)
                     }
-//                let date = item.dateCreation
-//                let content = item.content
-//                let isFavorite = self?.model.items[indexPath.row].isFavorite
-//                let favoriteModel = FavoriteModel(imageUrlInString: cell.imageUrlInString, title: cell.title, isFavorite: isFavorite ?? true, content: content, dateCreation: date)
-//                DataManager.shared.save(model: favoriteModel)
-//                self?.delegate?.saveContent(favoriteModel)
-//                self?.dismiss(animated: true)
             }
         }
         return cell

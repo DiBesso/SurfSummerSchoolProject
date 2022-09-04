@@ -23,6 +23,7 @@ struct DataManager {
     private let userDefaults: UserDefaults
     
     init() throws {
+
         guard let userDefaults = UserDefaults(suiteName: suiteName) else {
             throw Error.notFound
         }
@@ -39,7 +40,6 @@ struct DataManager {
             favorites.remove(id)
         }
         writeIntoStorage(newFavorites: favorites)
-        print("Save")
     }
     //    func save(model: FavoriteModel) {
     //        var contentInFavorite = fetchContentInFavorite()
@@ -52,7 +52,7 @@ struct DataManager {
     
     func fetchContentInFavorite() -> Set<String> {
         guard
-            let data = userDefaults.object(forKey: favoriteKey) as? Data,
+            let data = userDefaults.value(forKey: favoriteKey) as? Data,
             let decodeData = try? JSONDecoder().decode(Set<String>.self, from: data)
         else {
             return []
