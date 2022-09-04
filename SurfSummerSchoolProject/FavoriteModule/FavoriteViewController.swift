@@ -20,8 +20,7 @@ class FavoriteViewController: UIViewController {
     private var model = MainModel.shared
     private var detailModel = [DetailItemModel]()
     private let tab = TabBarModel.self
-    var didItemsUpdated: (() -> Void)?
-    
+    var didItemsUpdated: (() -> Void)?    
     //MARK: - Views
     
     var mainVC: MainViewController?
@@ -111,10 +110,7 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FavoriteCollectionViewCell.self)", for: indexPath)
         if let cell = cell as? FavoriteCollectionViewCell {
             let item = detailModel[indexPath.item]
-            cell.imageUrlInString = item.imageUrlInString
-            cell.title = item.title
-            cell.text = item.content
-            cell.date = item.dateCreation
+            cell.configure(model: item)
             cell.isFavorite = item.isFavorite
             cell.didFavoritesTapped = {
                 self.alertForTapFavorites(forIndex: indexPath, item: item)

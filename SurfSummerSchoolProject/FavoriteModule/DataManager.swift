@@ -52,7 +52,7 @@ struct DataManager {
     
     func fetchContentInFavorite() -> Set<String> {
         guard
-            let data = userDefaults.value(forKey: favoriteKey) as? Data,
+            let data = userDefaults.object(forKey: favoriteKey) as? Data,
             let decodeData = try? JSONDecoder().decode(Set<String>.self, from: data)
         else {
             return []
@@ -70,7 +70,7 @@ struct DataManager {
         guard let encodeData = try? JSONEncoder().encode(newFavorites) else {
             return
         }
-        userDefaults.set(encodeData, forKey: favoriteKey)
+        UserDefaults.standard.set(encodeData, forKey: favoriteKey)
     }
     
     func getFavoriteStatus(by id: String) -> Bool {
