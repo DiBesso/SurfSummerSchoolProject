@@ -52,6 +52,13 @@
 		A43C032E28A423B6001685BF /* DetailItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C032D28A423B5001685BF /* DetailItemModel.swift */; };
 		A43C033628A77A36001685BF /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C033428A77A36001685BF /* FavoriteCollectionViewCell.swift */; };
 		A43C033728A77A36001685BF /* FavoriteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43C033528A77A36001685BF /* FavoriteCollectionViewCell.xib */; };
+		A4D1A36828C5FAF700574CFA /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A36628C5FAF700574CFA /* ProfileTableViewCell.swift */; };
+		A4D1A36928C5FAF700574CFA /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4D1A36728C5FAF700574CFA /* ProfileTableViewCell.xib */; };
+		A4D1A36C28C6188B00574CFA /* ProfileInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A36A28C6188B00574CFA /* ProfileInfoTableViewCell.swift */; };
+		A4D1A36D28C6188B00574CFA /* ProfileInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4D1A36B28C6188B00574CFA /* ProfileInfoTableViewCell.xib */; };
+		A4D1A36F28C6222500574CFA /* ProfileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A36E28C6222500574CFA /* ProfileStorage.swift */; };
+		A4D1A37128C6224700574CFA /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A37028C6224700574CFA /* ProfileModel.swift */; };
+		A4D1A37328C622FD00574CFA /* BaseProfileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A37228C622FD00574CFA /* BaseProfileStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +109,13 @@
 		A43C032D28A423B5001685BF /* DetailItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemModel.swift; sourceTree = "<group>"; };
 		A43C033428A77A36001685BF /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		A43C033528A77A36001685BF /* FavoriteCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCollectionViewCell.xib; sourceTree = "<group>"; };
+		A4D1A36628C5FAF700574CFA /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		A4D1A36728C5FAF700574CFA /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
+		A4D1A36A28C6188B00574CFA /* ProfileInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoTableViewCell.swift; sourceTree = "<group>"; };
+		A4D1A36B28C6188B00574CFA /* ProfileInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileInfoTableViewCell.xib; sourceTree = "<group>"; };
+		A4D1A36E28C6222500574CFA /* ProfileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStorage.swift; sourceTree = "<group>"; };
+		A4D1A37028C6224700574CFA /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		A4D1A37228C622FD00574CFA /* BaseProfileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProfileStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,8 +257,12 @@
 		A43C0300289E85B0001685BF /* ProfileModule */ = {
 			isa = PBXGroup;
 			children = (
+				A4D1A36528C5FA7000574CFA /* Cells */,
 				A43C02F7289E857B001685BF /* ProfileViewController.swift */,
 				A43C02F8289E857B001685BF /* ProfileViewController.xib */,
+				A4D1A36E28C6222500574CFA /* ProfileStorage.swift */,
+				A4D1A37028C6224700574CFA /* ProfileModel.swift */,
+				A4D1A37228C622FD00574CFA /* BaseProfileStorage.swift */,
 			);
 			path = ProfileModule;
 			sourceTree = "<group>";
@@ -336,6 +354,17 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		A4D1A36528C5FA7000574CFA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A4D1A36628C5FAF700574CFA /* ProfileTableViewCell.swift */,
+				A4D1A36728C5FAF700574CFA /* ProfileTableViewCell.xib */,
+				A4D1A36A28C6188B00574CFA /* ProfileInfoTableViewCell.swift */,
+				A4D1A36B28C6188B00574CFA /* ProfileInfoTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -401,8 +430,10 @@
 				A42A795328A7C31600BB1C03 /* DetailTextTableViewCell.xib in Resources */,
 				A43C031C28A3FB13001685BF /* DetailViewController.xib in Resources */,
 				A43C02FE289E858B001685BF /* FavoriteViewController.xib in Resources */,
+				A4D1A36D28C6188B00574CFA /* ProfileInfoTableViewCell.xib in Resources */,
 				A43C02FA289E857B001685BF /* ProfileViewController.xib in Resources */,
 				A43C033728A77A36001685BF /* FavoriteCollectionViewCell.xib in Resources */,
+				A4D1A36928C5FAF700574CFA /* ProfileTableViewCell.xib in Resources */,
 				A42A795728A7C58500BB1C03 /* DetailImageTableViewCell.xib in Resources */,
 				A43C02F5289E855B001685BF /* MainViewController.xib in Resources */,
 				A43C031128A3CE26001685BF /* SearchViewController.xib in Resources */,
@@ -425,10 +456,13 @@
 				A43C032E28A423B6001685BF /* DetailItemModel.swift in Sources */,
 				A42A796428A8D63900BB1C03 /* AuthService.swift in Sources */,
 				A43C031328A3CE3E001685BF /* SearchPresenter.swift in Sources */,
+				A4D1A36F28C6222500574CFA /* ProfileStorage.swift in Sources */,
 				A43C0305289E869F001685BF /* TabBarConfiguration.swift in Sources */,
 				A42A797928A8DDD700BB1C03 /* BaseTokenContainer.swift in Sources */,
+				A4D1A36828C5FAF700574CFA /* ProfileTableViewCell.swift in Sources */,
 				A43C031028A3CE26001685BF /* SearchViewController.swift in Sources */,
 				A42A795B28A7CA0700BB1C03 /* NetworkTask.swift in Sources */,
+				A4D1A36C28C6188B00574CFA /* ProfileInfoTableViewCell.swift in Sources */,
 				A43C02F4289E855B001685BF /* MainViewController.swift in Sources */,
 				A43C031528A3CFFA001685BF /* SearchModel.swift in Sources */,
 				A42A795228A7C31600BB1C03 /* DetailTextTableViewCell.swift in Sources */,
@@ -437,8 +471,10 @@
 				A43C032628A41D55001685BF /* DetailTitleTableViewCell.swift in Sources */,
 				A42A798028AE27E800BB1C03 /* DataManager.swift in Sources */,
 				A43C02DF289A94BD001685BF /* AppDelegate.swift in Sources */,
+				A4D1A37328C622FD00574CFA /* BaseProfileStorage.swift in Sources */,
 				A42A796128A8C77600BB1C03 /* NetworkMethod.swift in Sources */,
 				A43C02FD289E858B001685BF /* FavoriteViewController.swift in Sources */,
+				A4D1A37128C6224700574CFA /* ProfileModel.swift in Sources */,
 				A43C0302289E8648001685BF /* TabBarModel.swift in Sources */,
 				A42A796628A8D65500BB1C03 /* AuthResponceModel.swift in Sources */,
 				A42A796828A8D66700BB1C03 /* AuthRequestModel.swift in Sources */,
