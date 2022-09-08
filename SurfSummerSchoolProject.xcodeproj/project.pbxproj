@@ -60,6 +60,8 @@
 		A4D1A37128C6224700574CFA /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A37028C6224700574CFA /* ProfileModel.swift */; };
 		A4D1A37328C622FD00574CFA /* BaseProfileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A37228C622FD00574CFA /* BaseProfileStorage.swift */; };
 		A4D1A3A028CA19C100574CFA /* SomeErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A39F28CA19C100574CFA /* SomeErrors.swift */; };
+		A4D1A3A628CA1E4300574CFA /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A3A528CA1E4300574CFA /* ColorExtension.swift */; };
+		A4D1A3A828CA1E6C00574CFA /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A3A728CA1E6C00574CFA /* PhoneNumber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +120,8 @@
 		A4D1A37028C6224700574CFA /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		A4D1A37228C622FD00574CFA /* BaseProfileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProfileStorage.swift; sourceTree = "<group>"; };
 		A4D1A39F28CA19C100574CFA /* SomeErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeErrors.swift; sourceTree = "<group>"; };
+		A4D1A3A528CA1E4300574CFA /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		A4D1A3A728CA1E6C00574CFA /* PhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +224,7 @@
 		A43C02DD289A94BD001685BF /* SurfSummerSchoolProject */ = {
 			isa = PBXGroup;
 			children = (
+				A4D1A3A428CA1DF800574CFA /* Extensions */,
 				A42A795828A7C91F00BB1C03 /* Services */,
 				A43C02DE289A94BD001685BF /* AppDelegate.swift */,
 				A43C02E7289A94BF001685BF /* Assets.xcassets */,
@@ -231,6 +236,8 @@
 				A43C02FF289E8593001685BF /* FavoriteModule */,
 				A43C0300289E85B0001685BF /* ProfileModule */,
 				A43C02F6289E8565001685BF /* MainModule */,
+				A4D1A3A228CA1D6F00574CFA /* AuthModule */,
+				A4D1A3A328CA1DA000574CFA /* SnackBar */,
 			);
 			path = SurfSummerSchoolProject;
 			sourceTree = "<group>";
@@ -376,6 +383,29 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
+		A4D1A3A228CA1D6F00574CFA /* AuthModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AuthModule;
+			sourceTree = "<group>";
+		};
+		A4D1A3A328CA1DA000574CFA /* SnackBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SnackBar;
+			sourceTree = "<group>";
+		};
+		A4D1A3A428CA1DF800574CFA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A4D1A3A528CA1E4300574CFA /* ColorExtension.swift */,
+				A4D1A3A728CA1E6C00574CFA /* PhoneNumber.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -465,6 +495,7 @@
 				A43C030C28A384C4001685BF /* MainModel.swift in Sources */,
 				A43C030828A3848C001685BF /* MainItemCollectionViewCell.swift in Sources */,
 				A43C032E28A423B6001685BF /* DetailItemModel.swift in Sources */,
+				A4D1A3A828CA1E6C00574CFA /* PhoneNumber.swift in Sources */,
 				A42A796428A8D63900BB1C03 /* AuthService.swift in Sources */,
 				A43C031328A3CE3E001685BF /* SearchPresenter.swift in Sources */,
 				A4D1A36F28C6222500574CFA /* ProfileStorage.swift in Sources */,
@@ -477,6 +508,7 @@
 				A43C02F4289E855B001685BF /* MainViewController.swift in Sources */,
 				A43C031528A3CFFA001685BF /* SearchModel.swift in Sources */,
 				A42A795228A7C31600BB1C03 /* DetailTextTableViewCell.swift in Sources */,
+				A4D1A3A628CA1E4300574CFA /* ColorExtension.swift in Sources */,
 				A43C031728A3D5BF001685BF /* SearchProtocols.swift in Sources */,
 				A43C02F9289E857B001685BF /* ProfileViewController.swift in Sources */,
 				A43C032628A41D55001685BF /* DetailTitleTableViewCell.swift in Sources */,
