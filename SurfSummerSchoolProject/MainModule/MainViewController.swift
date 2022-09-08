@@ -18,43 +18,39 @@ class MainViewController: UIViewController {
         static let aspectRatioWidthForHeight = 1.46
     }
     
+    let model = MainModel.shared
     // MARK: - Private Properties
-    private let model: MainModel = .init()
     private let tab = TabBarModel.self
     
     // MARK: - Views
-    
     @IBOutlet private weak var collectionView: UICollectionView!
     
-    
+    //MARK: - Delegate
+    var favoriteVC: FavoriteViewController?
+    // MARK: - Lifeсyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureApperance()
-        configureModel()
-        model.getPosts()
+        model.loadPosts()
         setSearchButton()
-        
-        
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureModel()
+    }
     // MARK: - Search Methods
-    
     func setSearchButton() {
         let searchButton = UIBarButtonItem(image: UIImage(named: "searchButton"), style: .plain, target: self, action: #selector(getSearch(sender:)))
         searchButton.tintColor = .black
         navigationItem.title = tab.main.title
         navigationItem.rightBarButtonItem = searchButton
-        
-        
     }
     
     @objc func getSearch (sender: UIBarButtonItem) {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Поиск"
-        //        searchController.searchBar.showsCancelButton = false
-        //        searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
         navigationController?.pushViewController(SearchViewController(), animated: true)
         definesPresentationContext = true
@@ -63,6 +59,7 @@ class MainViewController: UIViewController {
 
 // MARK: - Private Methods
 private extension MainViewController {
+    
     
     func configureApperance() {
         navigationItem.title = "Главная"
@@ -75,11 +72,14 @@ private extension MainViewController {
     
     func configureModel() {
         model.didItemsUpdated = { [weak self] in
-            self?.collectionView.reloadData()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self?.collectionView.reloadData()
+            }
         }
     }
-    
 }
+
+// MARK: - UICollection
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -90,12 +90,19 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(MainItemCollectionViewCell.self)", for: indexPath)
         if let cell = cell as? MainItemCollectionViewCell {
-            let item = model.items[indexPath.row]
-            cell.image = item.image
+            var item: DetailItemModel
+            item = model.items[indexPath.item]
+            cell.imageUrlInString = item.imageUrlInString
             cell.title = item.title
             cell.isFavorite = item.isFavorite
             cell.didFavoritesTapped = { [weak self] in
+                do {
                 self?.model.items[indexPath.row].isFavorite.toggle()
+                    try DataManager().save(by: item.id, new: self?.model.items[indexPath.item].isFavorite ?? false)
+                    collectionView.reloadItems(at: [indexPath])
+                } catch let error {
+                        print(error)
+                    }
             }
         }
         return cell
@@ -120,3 +127,4 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         navigationController?.pushViewController(vc, animated: true)
     }
 }
+

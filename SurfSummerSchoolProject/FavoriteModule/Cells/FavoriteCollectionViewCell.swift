@@ -30,35 +30,21 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
     var buttonImage: UIImage? {
         return isFavorite ? Constants.fillHeartImage : Constants.heartImage
     }
-    
+
+    override var isHighlighted: Bool {
+        didSet {
+            animationTapCell()
+        }
+    }
     // MARK: - Properties
     var model: DetailItemModel?
     
-    
-    var text: String? {
-        didSet {
-            contentLabel.text = text
-        }
-    }
-    var title: String = "" {
-        didSet {
-            titleLabel.text = title
-        }
-    }
-
-    var date: String = "" {
-        didSet {
-            dateLabel.text = date
-        }
-    }
-    var image: UIImage? {
-        didSet {
-            cartImageView.image = image
-        }
-    }
-    var isFavorite: Bool = false {
+    var isFavorite: Bool = true {
         didSet {
             favoriteButton.setImage(buttonImage, for: .normal)
+            if isFavorite == false {
+                favoriteButton.isEnabled = true
+            }
         }
     }
     
@@ -66,16 +52,33 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
     
     @IBAction func favoriteAction(_ sender: UIButton) {
         didFavoritesTapped?()
-        isFavorite.toggle()
+//        isFavorite.toggle()
     }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         configureAppearance()
     }
 
+    func animationTapCell() {
+        let cellReduction = CGAffineTransform(scaleX: 0.98, y: 0.98)
+        UIView.animate(withDuration: 0.2) {
+            self.contentView.transform = self.isHighlighted ? cellReduction : .identity
+        }
+    }
+    
+    func configure(model: DetailItemModel) {
+        titleLabel.text = model.title
+        contentLabel.text = model.content
+        dateLabel.text = model.dateCreation
+        let imageUrl = model.imageUrlInString
+        guard let url = URL(string: imageUrl) else {
+            return
+        }
+        cartImageView.loadImage(from: url)
+    }
 }
+
 
 private extension FavoriteCollectionViewCell {
     
@@ -92,4 +95,5 @@ private extension FavoriteCollectionViewCell {
         cartImageView.layer.cornerRadius = 12
         cartImageView.contentMode = .scaleAspectFill
     }
+    
 }
