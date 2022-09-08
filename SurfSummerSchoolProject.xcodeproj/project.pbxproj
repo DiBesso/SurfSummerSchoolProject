@@ -62,6 +62,10 @@
 		A4D1A3A028CA19C100574CFA /* SomeErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A39F28CA19C100574CFA /* SomeErrors.swift */; };
 		A4D1A3A628CA1E4300574CFA /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A3A528CA1E4300574CFA /* ColorExtension.swift */; };
 		A4D1A3A828CA1E6C00574CFA /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A3A728CA1E6C00574CFA /* PhoneNumber.swift */; };
+		A4D1A3AA28CA1EEE00574CFA /* SnackBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A3A928CA1EEE00574CFA /* SnackBarModel.swift */; };
+		A4D1A3AC28CA1F1000574CFA /* SnackBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A3AB28CA1F1000574CFA /* SnackBarView.swift */; };
+		A4D1A3AF28CA1F3900574CFA /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A3AD28CA1F3900574CFA /* AuthViewController.swift */; };
+		A4D1A3B028CA1F3900574CFA /* AuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4D1A3AE28CA1F3900574CFA /* AuthViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +126,10 @@
 		A4D1A39F28CA19C100574CFA /* SomeErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeErrors.swift; sourceTree = "<group>"; };
 		A4D1A3A528CA1E4300574CFA /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		A4D1A3A728CA1E6C00574CFA /* PhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumber.swift; sourceTree = "<group>"; };
+		A4D1A3A928CA1EEE00574CFA /* SnackBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBarModel.swift; sourceTree = "<group>"; };
+		A4D1A3AB28CA1F1000574CFA /* SnackBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBarView.swift; sourceTree = "<group>"; };
+		A4D1A3AD28CA1F3900574CFA /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		A4D1A3AE28CA1F3900574CFA /* AuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +394,8 @@
 		A4D1A3A228CA1D6F00574CFA /* AuthModule */ = {
 			isa = PBXGroup;
 			children = (
+				A4D1A3AD28CA1F3900574CFA /* AuthViewController.swift */,
+				A4D1A3AE28CA1F3900574CFA /* AuthViewController.xib */,
 			);
 			path = AuthModule;
 			sourceTree = "<group>";
@@ -393,6 +403,8 @@
 		A4D1A3A328CA1DA000574CFA /* SnackBar */ = {
 			isa = PBXGroup;
 			children = (
+				A4D1A3A928CA1EEE00574CFA /* SnackBarModel.swift */,
+				A4D1A3AB28CA1F1000574CFA /* SnackBarView.swift */,
 			);
 			path = SnackBar;
 			sourceTree = "<group>";
@@ -471,6 +483,7 @@
 				A42A795328A7C31600BB1C03 /* DetailTextTableViewCell.xib in Resources */,
 				A43C031C28A3FB13001685BF /* DetailViewController.xib in Resources */,
 				A43C02FE289E858B001685BF /* FavoriteViewController.xib in Resources */,
+				A4D1A3B028CA1F3900574CFA /* AuthViewController.xib in Resources */,
 				A4D1A36D28C6188B00574CFA /* ProfileInfoTableViewCell.xib in Resources */,
 				A43C02FA289E857B001685BF /* ProfileViewController.xib in Resources */,
 				A43C033728A77A36001685BF /* FavoriteCollectionViewCell.xib in Resources */,
@@ -488,6 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4D1A3AF28CA1F3900574CFA /* AuthViewController.swift in Sources */,
 				A42A795F28A8C59200BB1C03 /* BaseNetworkTask.swift in Sources */,
 				A43C031B28A3FB13001685BF /* DetailViewController.swift in Sources */,
 				A42A797228A8DC1A00BB1C03 /* EmptyModel.swift in Sources */,
@@ -514,6 +528,8 @@
 				A43C032628A41D55001685BF /* DetailTitleTableViewCell.swift in Sources */,
 				A42A798028AE27E800BB1C03 /* DataManager.swift in Sources */,
 				A43C02DF289A94BD001685BF /* AppDelegate.swift in Sources */,
+				A4D1A3AC28CA1F1000574CFA /* SnackBarView.swift in Sources */,
+				A4D1A3AA28CA1EEE00574CFA /* SnackBarModel.swift in Sources */,
 				A4D1A37328C622FD00574CFA /* BaseProfileStorage.swift in Sources */,
 				A42A796128A8C77600BB1C03 /* NetworkMethod.swift in Sources */,
 				A43C02FD289E858B001685BF /* FavoriteViewController.swift in Sources */,
