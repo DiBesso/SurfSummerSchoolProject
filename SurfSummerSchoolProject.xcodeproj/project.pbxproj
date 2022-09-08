@@ -59,6 +59,7 @@
 		A4D1A36F28C6222500574CFA /* ProfileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A36E28C6222500574CFA /* ProfileStorage.swift */; };
 		A4D1A37128C6224700574CFA /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A37028C6224700574CFA /* ProfileModel.swift */; };
 		A4D1A37328C622FD00574CFA /* BaseProfileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A37228C622FD00574CFA /* BaseProfileStorage.swift */; };
+		A4D1A3A028CA19C100574CFA /* SomeErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A39F28CA19C100574CFA /* SomeErrors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +117,7 @@
 		A4D1A36E28C6222500574CFA /* ProfileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStorage.swift; sourceTree = "<group>"; };
 		A4D1A37028C6224700574CFA /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		A4D1A37228C622FD00574CFA /* BaseProfileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProfileStorage.swift; sourceTree = "<group>"; };
+		A4D1A39F28CA19C100574CFA /* SomeErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 		A42A795828A7C91F00BB1C03 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A4D1A39E28CA19A600574CFA /* Errors */,
 				A42A797328A8DD8A00BB1C03 /* Storage */,
 				A42A796928A8DB3500BB1C03 /* Networking */,
 			);
@@ -365,6 +368,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		A4D1A39E28CA19A600574CFA /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				A4D1A39F28CA19C100574CFA /* SomeErrors.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -477,6 +488,7 @@
 				A4D1A37128C6224700574CFA /* ProfileModel.swift in Sources */,
 				A43C0302289E8648001685BF /* TabBarModel.swift in Sources */,
 				A42A796628A8D65500BB1C03 /* AuthResponceModel.swift in Sources */,
+				A4D1A3A028CA19C100574CFA /* SomeErrors.swift in Sources */,
 				A42A796828A8D66700BB1C03 /* AuthRequestModel.swift in Sources */,
 				A42A797E28ABCB1A00BB1C03 /* UIImageView+ImageLoader.swift in Sources */,
 				A43C033628A77A36001685BF /* FavoriteCollectionViewCell.swift in Sources */,
