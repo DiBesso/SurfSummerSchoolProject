@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController {
         let alert = UIAlertController(title: "Внимание", message: "Вы точно хотите выйти из приложения?", preferredStyle: .alert)
         let buttonActionCancel = UIAlertAction(title: "Нет", style: .cancel)
         let buttonActionAccept = UIAlertAction(title: "Да, точно", style: .default) { _ in
-            let vc = AuthViewController()
+            let vc = AuthorezationViewController()
             self.navigationController?.pushViewController(vc, animated: true)
             }
         alert.addAction(buttonActionCancel)

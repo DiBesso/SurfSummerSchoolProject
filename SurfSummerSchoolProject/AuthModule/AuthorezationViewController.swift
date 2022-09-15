@@ -1,13 +1,13 @@
 //
-//  AuthViewController.swift
+//  AuthorezationViewController.swift
 //  SurfSummerSchoolProject
 //
-//  Created by Дмитрий Бессонов on 08.09.2022.
+//  Created by Дмитрий Бессонов on 15.09.2022.
 //
 
 import UIKit
 
-class AuthViewController: UIViewController {
+class AuthorezationViewController: UIViewController {
 
     // MARK: - Constants
     
@@ -16,10 +16,10 @@ class AuthViewController: UIViewController {
     // MARK: - Views
     
     @IBOutlet weak var loginTextField: UITextField!
-    @IBOutlet weak var loginLine: UIView!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var passwordLine: UIView!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loginLine: UIView!
+    @IBOutlet weak var passwordLine: UIView!
     
     // MARK: - Lifecyrcle
     
@@ -35,7 +35,7 @@ class AuthViewController: UIViewController {
         configureNavigationBar()
         loginButton.setTitle("Войти", for: .normal)
     }
-
+    
     // MARK: - Actions
     
     @IBAction func loginButtonAction(_ sender: Any) {
@@ -68,7 +68,7 @@ class AuthViewController: UIViewController {
                         }
                     case .failure (let error):
                         DispatchQueue.main.async {
-                            var snackbarText = "Что-то пошло не так"
+                            var snackbarText = "Логин или пароль введен неправильно"
                             if let currentError = error as? SomeErrors {
                                 switch currentError {
                                 case .badRequest(let response):
@@ -91,11 +91,6 @@ class AuthViewController: UIViewController {
         }
     }
     
-    @IBAction func ButtonActionWithoutLog(_ sender: Any) {
-        loginTextField.text = "+7 (987) 654 32 19"
-        passwordTextField.text = "qwerty"
-    }
-    
     @objc func togglePasswordView(_ sender: Any) {
         passwordTextField.isSecureTextEntry.toggle()
         showHidePasswordButton.isSelected.toggle()
@@ -103,7 +98,7 @@ class AuthViewController: UIViewController {
 }
 
 // MARK: - Private Methods AuthorizationViewController
-private extension AuthViewController {
+private extension AuthorezationViewController {
     
     func configureApperance() {
         self.loginTextField.placeholder = "Логин"
@@ -129,7 +124,7 @@ private extension AuthViewController {
     }
 }
 
-extension AuthViewController {
+extension AuthorezationViewController {
     
     func enablePasswordToggle(){
         var buttonConfiguration = UIButton.Configuration.filled()
@@ -146,7 +141,7 @@ extension AuthViewController {
     }
 }
 
-extension AuthViewController {
+extension AuthorezationViewController {
     
     func showEmptyLoginNotification() {
         loginLine.backgroundColor = ColorsExtension.red
@@ -277,7 +272,7 @@ extension UITextField {
 }
 
 // MARK: - UITableViewDelegate
-extension AuthViewController: UITextFieldDelegate {
+extension AuthorezationViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let fullString = (textField.text ?? "") + string

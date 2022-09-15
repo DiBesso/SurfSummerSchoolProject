@@ -64,8 +64,8 @@
 		A4D1A3A828CA1E6C00574CFA /* PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A3A728CA1E6C00574CFA /* PhoneNumber.swift */; };
 		A4D1A3AA28CA1EEE00574CFA /* SnackBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A3A928CA1EEE00574CFA /* SnackBarModel.swift */; };
 		A4D1A3AC28CA1F1000574CFA /* SnackBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A3AB28CA1F1000574CFA /* SnackBarView.swift */; };
-		A4D1A3AF28CA1F3900574CFA /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A3AD28CA1F3900574CFA /* AuthViewController.swift */; };
-		A4D1A3B028CA1F3900574CFA /* AuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4D1A3AE28CA1F3900574CFA /* AuthViewController.xib */; };
+		A4D96EBF28D379720060B40F /* AuthorezationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D96EBD28D379720060B40F /* AuthorezationViewController.swift */; };
+		A4D96EC028D379720060B40F /* AuthorezationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4D96EBE28D379720060B40F /* AuthorezationViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,8 +128,8 @@
 		A4D1A3A728CA1E6C00574CFA /* PhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumber.swift; sourceTree = "<group>"; };
 		A4D1A3A928CA1EEE00574CFA /* SnackBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBarModel.swift; sourceTree = "<group>"; };
 		A4D1A3AB28CA1F1000574CFA /* SnackBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBarView.swift; sourceTree = "<group>"; };
-		A4D1A3AD28CA1F3900574CFA /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		A4D1A3AE28CA1F3900574CFA /* AuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthViewController.xib; sourceTree = "<group>"; };
+		A4D96EBD28D379720060B40F /* AuthorezationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorezationViewController.swift; sourceTree = "<group>"; };
+		A4D96EBE28D379720060B40F /* AuthorezationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthorezationViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -394,8 +394,8 @@
 		A4D1A3A228CA1D6F00574CFA /* AuthModule */ = {
 			isa = PBXGroup;
 			children = (
-				A4D1A3AD28CA1F3900574CFA /* AuthViewController.swift */,
-				A4D1A3AE28CA1F3900574CFA /* AuthViewController.xib */,
+				A4D96EBD28D379720060B40F /* AuthorezationViewController.swift */,
+				A4D96EBE28D379720060B40F /* AuthorezationViewController.xib */,
 			);
 			path = AuthModule;
 			sourceTree = "<group>";
@@ -483,11 +483,11 @@
 				A42A795328A7C31600BB1C03 /* DetailTextTableViewCell.xib in Resources */,
 				A43C031C28A3FB13001685BF /* DetailViewController.xib in Resources */,
 				A43C02FE289E858B001685BF /* FavoriteViewController.xib in Resources */,
-				A4D1A3B028CA1F3900574CFA /* AuthViewController.xib in Resources */,
 				A4D1A36D28C6188B00574CFA /* ProfileInfoTableViewCell.xib in Resources */,
 				A43C02FA289E857B001685BF /* ProfileViewController.xib in Resources */,
 				A43C033728A77A36001685BF /* FavoriteCollectionViewCell.xib in Resources */,
 				A4D1A36928C5FAF700574CFA /* ProfileTableViewCell.xib in Resources */,
+				A4D96EC028D379720060B40F /* AuthorezationViewController.xib in Resources */,
 				A42A795728A7C58500BB1C03 /* DetailImageTableViewCell.xib in Resources */,
 				A43C02F5289E855B001685BF /* MainViewController.xib in Resources */,
 				A43C031128A3CE26001685BF /* SearchViewController.xib in Resources */,
@@ -501,7 +501,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4D1A3AF28CA1F3900574CFA /* AuthViewController.swift in Sources */,
 				A42A795F28A8C59200BB1C03 /* BaseNetworkTask.swift in Sources */,
 				A43C031B28A3FB13001685BF /* DetailViewController.swift in Sources */,
 				A42A797228A8DC1A00BB1C03 /* EmptyModel.swift in Sources */,
@@ -536,6 +535,7 @@
 				A4D1A37128C6224700574CFA /* ProfileModel.swift in Sources */,
 				A43C0302289E8648001685BF /* TabBarModel.swift in Sources */,
 				A42A796628A8D65500BB1C03 /* AuthResponceModel.swift in Sources */,
+				A4D96EBF28D379720060B40F /* AuthorezationViewController.swift in Sources */,
 				A4D1A3A028CA19C100574CFA /* SomeErrors.swift in Sources */,
 				A42A796828A8D66700BB1C03 /* AuthRequestModel.swift in Sources */,
 				A42A797E28ABCB1A00BB1C03 /* UIImageView+ImageLoader.swift in Sources */,
