@@ -53,6 +53,7 @@ private extension DetailViewController {
             navigationController?.interactivePopGestureRecognizer?.delegate = self
         }
     
+    //MARK: - Search Methods
     func setSearchButton() {
         let searchButton = UIBarButtonItem(image: UIImage(named: "searchButton"), style: .plain, target: self, action: #selector(getSearch(sender:)))
         searchButton.tintColor = .black
@@ -65,7 +66,6 @@ private extension DetailViewController {
     @objc func getSearch (sender: UIBarButtonItem) {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Поиск"
-//        searchController.searchBar.showsCancelButton = false
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
         navigationController?.pushViewController(SearchViewController(), animated: true)
@@ -106,7 +106,7 @@ extension DetailViewController: UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "\(DetailImageTableViewCell.self)")
             if let cell = cell as? DetailImageTableViewCell {
-                cell.image = model?.image
+                cell.imageUrlInString = model?.imageUrlInString ?? ""
             }
             return cell ?? UITableViewCell()
         case 1:
@@ -114,6 +114,7 @@ extension DetailViewController: UITableViewDataSource {
             if let cell = cell as? DetailTitleTableViewCell {
                 cell.title = model?.title ?? ""
                 cell.date = model?.dateCreation ?? ""
+        
             }
             return cell ?? UITableViewCell()
         case 2:
