@@ -21,6 +21,21 @@ class AuthViewController: UIViewController {
     @IBOutlet weak var passwordLine: UIView!
     @IBOutlet weak var loginButton: UIButton!
     
+    // MARK: - Lifecyrcle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureApperance()
+        enablePasswordToggle()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureNavigationBar()
+        loginButton.setTitle("Войти", for: .normal)
+    }
+
     // MARK: - Actions
     
     @IBAction func loginButtonAction(_ sender: Any) {
@@ -84,19 +99,6 @@ class AuthViewController: UIViewController {
     @objc func togglePasswordView(_ sender: Any) {
         passwordTextField.isSecureTextEntry.toggle()
         showHidePasswordButton.isSelected.toggle()
-    }
-    
-    // MARK: - Lifecyrcle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureApperance()
-        enablePasswordToggle()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        configureNavigationBar()
     }
 }
 
