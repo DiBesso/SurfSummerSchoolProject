@@ -27,39 +27,57 @@ class MainViewController: UIViewController {
     
     //MARK: - Delegate
     var favoriteVC: FavoriteViewController?
+    
     // MARK: - Lifeсyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureApperance()
         model.loadPosts()
-        setSearchButton()
+//        setSearchButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureModel()
+        configureNavigationBar()
     }
-    // MARK: - Search Methods
-    func setSearchButton() {
-        let searchButton = UIBarButtonItem(image: UIImage(named: "searchButton"), style: .plain, target: self, action: #selector(getSearch(sender:)))
-        searchButton.tintColor = .black
-        navigationItem.title = tab.main.title
+    // MARK: - NavigationBar
+    
+    func configureNavigationBar() {
+        navigationItem.title = "Главная"
+        let searchButton = UIBarButtonItem(
+            image: UIImage(named: "searchButton"),
+            style: .plain,
+            target: self,
+            action: #selector(enterSearchViewController(sender:))
+        )
         navigationItem.rightBarButtonItem = searchButton
+        navigationItem.rightBarButtonItem?.tintColor = ColorsExtension.black
     }
     
-    @objc func getSearch (sender: UIBarButtonItem) {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.placeholder = "Поиск"
-        navigationItem.searchController = searchController
-        navigationController?.pushViewController(SearchViewController(), animated: true)
-        definesPresentationContext = true
+    @objc func enterSearchViewController(sender: UIBarButtonItem) {
+        let searchViewController = SearchVC()
+        self.navigationController?.pushViewController(searchViewController, animated: true)
     }
+//    func setSearchButton() {
+//        let searchButton = UIBarButtonItem(image: UIImage(named: "searchButton"), style: .plain, target: self, action: #selector(getSearch(sender:)))
+//        searchButton.tintColor = .black
+//        navigationItem.title = tab.main.title
+//        navigationItem.rightBarButtonItem = searchButton
+//    }
+//
+//    @objc func getSearch (sender: UIBarButtonItem) {
+//        let searchController = UISearchController(searchResultsController: nil)
+//        searchController.searchBar.placeholder = "Поиск"
+//        navigationItem.searchController = searchController
+//        navigationController?.pushViewController(SearchVC(), animated: true)
+//        definesPresentationContext = true
+//    }
 }
 
 // MARK: - Private Methods
 private extension MainViewController {
-    
     
     func configureApperance() {
         navigationItem.title = "Главная"

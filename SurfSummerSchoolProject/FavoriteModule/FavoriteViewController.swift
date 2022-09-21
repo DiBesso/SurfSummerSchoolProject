@@ -52,7 +52,7 @@ class FavoriteViewController: UIViewController {
         searchController.searchBar.placeholder = "Поиск"
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
-        navigationController?.pushViewController(SearchViewController(), animated: true)
+        navigationController?.pushViewController(SearchVC(), animated: true)
         definesPresentationContext = true
     }
 }

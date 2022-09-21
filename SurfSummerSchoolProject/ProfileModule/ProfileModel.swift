@@ -30,7 +30,7 @@ struct ProfileExample {
         } catch {
         print(error)
             self.profileModel = ProfileModel(
-                profileImage: "",
+                profileImage: "avatar",
                 firstName: "Дмитрий",
                 secondName: "Бессонов",
                 status: "Я начинаю свой путь в IT",

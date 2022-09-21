@@ -32,7 +32,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JRJ-ej-IX4">
-                    <rect key="frame" x="16" y="151" width="382" height="56"/>
+                    <rect key="frame" x="16" y="167" width="382" height="56"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="OgN-gX-cPb"/>
                     </constraints>
@@ -40,7 +40,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eef-vd-1LM">
-                    <rect key="frame" x="16" y="239" width="382" height="48"/>
+                    <rect key="frame" x="16" y="255" width="382" height="48"/>
                     <color key="backgroundColor" systemColor="labelColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="KJ7-vL-99T"/>
@@ -60,7 +60,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XkX-Ve-atu">
-                    <rect key="frame" x="16" y="207" width="382" height="1"/>
+                    <rect key="frame" x="16" y="223" width="382" height="1"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="wLb-yV-wa7"/>
@@ -75,7 +75,7 @@
                 <constraint firstItem="ktU-ZV-hdu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="35" id="AWw-UB-ro4"/>
                 <constraint firstItem="JRJ-ej-IX4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="EeW-13-qDV"/>
                 <constraint firstItem="eef-vd-1LM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Ghh-GI-pbL"/>
-                <constraint firstItem="JRJ-ej-IX4" firstAttribute="top" secondItem="ktU-ZV-hdu" secondAttribute="bottom" constant="16" id="H0a-Fg-Rw6"/>
+                <constraint firstItem="JRJ-ej-IX4" firstAttribute="top" secondItem="ktU-ZV-hdu" secondAttribute="bottom" constant="32" id="H0a-Fg-Rw6"/>
                 <constraint firstItem="ktU-ZV-hdu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="NlY-GM-MPF"/>
                 <constraint firstItem="XkX-Ve-atu" firstAttribute="top" secondItem="JRJ-ej-IX4" secondAttribute="bottom" id="TkD-iY-fcu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eef-vd-1LM" secondAttribute="trailing" constant="16" id="WF1-We-jbd"/>

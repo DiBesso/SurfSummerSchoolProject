@@ -66,6 +66,8 @@
 		A4D1A3AC28CA1F1000574CFA /* SnackBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1A3AB28CA1F1000574CFA /* SnackBarView.swift */; };
 		A4D96EBF28D379720060B40F /* AuthorezationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D96EBD28D379720060B40F /* AuthorezationViewController.swift */; };
 		A4D96EC028D379720060B40F /* AuthorezationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4D96EBE28D379720060B40F /* AuthorezationViewController.xib */; };
+		A4D96ECA28DB3DA10060B40F /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D96EC828DB3DA10060B40F /* SearchVC.swift */; };
+		A4D96ECB28DB3DA10060B40F /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4D96EC928DB3DA10060B40F /* SearchVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +132,8 @@
 		A4D1A3AB28CA1F1000574CFA /* SnackBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBarView.swift; sourceTree = "<group>"; };
 		A4D96EBD28D379720060B40F /* AuthorezationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorezationViewController.swift; sourceTree = "<group>"; };
 		A4D96EBE28D379720060B40F /* AuthorezationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthorezationViewController.xib; sourceTree = "<group>"; };
+		A4D96EC828DB3DA10060B40F /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		A4D96EC928DB3DA10060B40F /* SearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +249,7 @@
 				A43C0300289E85B0001685BF /* ProfileModule */,
 				A43C02F6289E8565001685BF /* MainModule */,
 				A4D1A3A228CA1D6F00574CFA /* AuthModule */,
+				A4D96EC728DB3D3F0060B40F /* SearchVC */,
 				A4D1A3A328CA1DA000574CFA /* SnackBar */,
 			);
 			path = SurfSummerSchoolProject;
@@ -418,6 +423,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		A4D96EC728DB3D3F0060B40F /* SearchVC */ = {
+			isa = PBXGroup;
+			children = (
+				A4D96EC828DB3DA10060B40F /* SearchVC.swift */,
+				A4D96EC928DB3DA10060B40F /* SearchVC.xib */,
+			);
+			path = SearchVC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -488,6 +502,7 @@
 				A43C033728A77A36001685BF /* FavoriteCollectionViewCell.xib in Resources */,
 				A4D1A36928C5FAF700574CFA /* ProfileTableViewCell.xib in Resources */,
 				A4D96EC028D379720060B40F /* AuthorezationViewController.xib in Resources */,
+				A4D96ECB28DB3DA10060B40F /* SearchVC.xib in Resources */,
 				A42A795728A7C58500BB1C03 /* DetailImageTableViewCell.xib in Resources */,
 				A43C02F5289E855B001685BF /* MainViewController.xib in Resources */,
 				A43C031128A3CE26001685BF /* SearchViewController.xib in Resources */,
@@ -522,6 +537,7 @@
 				A43C031528A3CFFA001685BF /* SearchModel.swift in Sources */,
 				A42A795228A7C31600BB1C03 /* DetailTextTableViewCell.swift in Sources */,
 				A4D1A3A628CA1E4300574CFA /* ColorExtension.swift in Sources */,
+				A4D96ECA28DB3DA10060B40F /* SearchVC.swift in Sources */,
 				A43C031728A3D5BF001685BF /* SearchProtocols.swift in Sources */,
 				A43C02F9289E857B001685BF /* ProfileViewController.swift in Sources */,
 				A43C032628A41D55001685BF /* DetailTitleTableViewCell.swift in Sources */,

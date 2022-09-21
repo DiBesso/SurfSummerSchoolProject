@@ -16,13 +16,27 @@ final class MainModel {
 
     // MARK: - Properties
     let pictureService = PicturesService()
+    var posts: [DetailItemModel] = []
     var items: [DetailItemModel] = [] {
         didSet {
             didItemsUpdated?()
         }
     }
+    var favoritePosts: [DetailItemModel] {
+        posts.filter { $0.isFavorite }
+    }
 
     // MARK: - Methods
+    
+    func filteredPosts(searchText: String) -> [DetailItemModel] {
+        posts.filter { $0.title.lowercased().contains(searchText.lowercased()) }
+    }
+    
+    func favoritePost(for post: DetailItemModel) {
+        guard let index = posts.firstIndex(where: { $0.title == post.title }) else { return }
+        posts[index].isFavorite.toggle()
+    }
+    
     func loadPosts() {
         pictureService.loadPictures { [weak self] result in
             switch result {

@@ -22,7 +22,7 @@ class SearchPresenter {
 
     func getSearch() -> UISearchController {
         searchController.searchBar.placeholder = "Поиск"
-        searchController.searchBar.showsCancelButton = false
+        searchController.searchBar.showsCancelButton = true
         return searchController
     }
     
