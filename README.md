@@ -9,18 +9,20 @@
 Пароль: "qwerty"
 
 Главный экран приложения.
-![main](https://user-images.githubusercontent.com/95565087/191459040-aa162af8-1b25-4b63-8275-4d743b921f46.png)
+![main Medium](https://user-images.githubusercontent.com/95565087/191460865-1b483244-6395-4281-8183-dc36c06a064a.png)
+
 
 Экран детального отображения поста.
-![detail](https://user-images.githubusercontent.com/95565087/191459632-800f6222-74b9-4f14-8919-29a97d027a29.png)
+![detail Medium](https://user-images.githubusercontent.com/95565087/191460501-4a89cd23-30b8-480b-a4c8-fa7185300d69.jpeg)
 
 Экран избранного.
-![favorite](https://user-images.githubusercontent.com/95565087/191459719-0a17b84a-70a5-46fc-bc3f-68392a88a6b3.png)
+![favorite Medium](https://user-images.githubusercontent.com/95565087/191460719-16d18b7e-1e28-4a2b-927b-5ed2ad6de318.jpeg)
 
 Экран профиля, с возможностью выхода из профиля на экран авторизации.
-![profile](https://user-images.githubusercontent.com/95565087/191459792-8d3e6f7a-7700-4fc2-924a-0cf2162fb356.png)
+![profile Medium](https://user-images.githubusercontent.com/95565087/191460990-4abf1e46-631e-4bd9-ae53-02106c75be4c.png)
 
 Экран авторизации с всплывающими подсказками о валидности логина и пароля.
-![snackbar](https://user-images.githubusercontent.com/95565087/191459981-e66a128c-589b-4ed7-af1c-2149943fe60d.png)
+![snackbar Medium](https://user-images.githubusercontent.com/95565087/191461098-1296530a-b7da-4cfb-81fc-0051bca04b48.png)
 
-![valid pass](https://user-images.githubusercontent.com/95565087/191460188-9d481e4d-3a25-45fb-842c-80985ba7e66f.png)
+![valid pass Medium](https://user-images.githubusercontent.com/95565087/191461155-89396a56-b639-4501-a43e-62832615614f.png)
+
