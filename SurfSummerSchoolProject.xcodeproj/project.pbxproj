@@ -40,11 +40,6 @@
 		A43C030828A3848C001685BF /* MainItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C030628A3848C001685BF /* MainItemCollectionViewCell.swift */; };
 		A43C030928A3848C001685BF /* MainItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43C030728A3848C001685BF /* MainItemCollectionViewCell.xib */; };
 		A43C030C28A384C4001685BF /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C030B28A384C4001685BF /* MainModel.swift */; };
-		A43C031028A3CE26001685BF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C030E28A3CE26001685BF /* SearchViewController.swift */; };
-		A43C031128A3CE26001685BF /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43C030F28A3CE26001685BF /* SearchViewController.xib */; };
-		A43C031328A3CE3E001685BF /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C031228A3CE3D001685BF /* SearchPresenter.swift */; };
-		A43C031528A3CFFA001685BF /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C031428A3CFFA001685BF /* SearchModel.swift */; };
-		A43C031728A3D5BF001685BF /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C031628A3D5BF001685BF /* SearchProtocols.swift */; };
 		A43C031B28A3FB13001685BF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C031928A3FB13001685BF /* DetailViewController.swift */; };
 		A43C031C28A3FB13001685BF /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43C031A28A3FB13001685BF /* DetailViewController.xib */; };
 		A43C032628A41D55001685BF /* DetailTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C032428A41D55001685BF /* DetailTitleTableViewCell.swift */; };
@@ -106,11 +101,6 @@
 		A43C030628A3848C001685BF /* MainItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		A43C030728A3848C001685BF /* MainItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		A43C030B28A384C4001685BF /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
-		A43C030E28A3CE26001685BF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		A43C030F28A3CE26001685BF /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
-		A43C031228A3CE3D001685BF /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
-		A43C031428A3CFFA001685BF /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
-		A43C031628A3D5BF001685BF /* SearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
 		A43C031928A3FB13001685BF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A43C031A28A3FB13001685BF /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		A43C032428A41D55001685BF /* DetailTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTitleTableViewCell.swift; sourceTree = "<group>"; };
@@ -243,7 +233,6 @@
 				A43C02E9289A94BF001685BF /* LaunchScreen.storyboard */,
 				A43C02EC289A94BF001685BF /* Info.plist */,
 				A43C031828A3FADE001685BF /* DetailModule */,
-				A43C030D28A3CDE3001685BF /* SearchModule */,
 				A43C0303289E864F001685BF /* TabBar */,
 				A43C02FF289E8593001685BF /* FavoriteModule */,
 				A43C0300289E85B0001685BF /* ProfileModule */,
@@ -306,18 +295,6 @@
 				A43C030728A3848C001685BF /* MainItemCollectionViewCell.xib */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		A43C030D28A3CDE3001685BF /* SearchModule */ = {
-			isa = PBXGroup;
-			children = (
-				A43C030E28A3CE26001685BF /* SearchViewController.swift */,
-				A43C030F28A3CE26001685BF /* SearchViewController.xib */,
-				A43C031228A3CE3D001685BF /* SearchPresenter.swift */,
-				A43C031428A3CFFA001685BF /* SearchModel.swift */,
-				A43C031628A3D5BF001685BF /* SearchProtocols.swift */,
-			);
-			path = SearchModule;
 			sourceTree = "<group>";
 		};
 		A43C031828A3FADE001685BF /* DetailModule */ = {
@@ -505,7 +482,6 @@
 				A4D96ECB28DB3DA10060B40F /* SearchVC.xib in Resources */,
 				A42A795728A7C58500BB1C03 /* DetailImageTableViewCell.xib in Resources */,
 				A43C02F5289E855B001685BF /* MainViewController.xib in Resources */,
-				A43C031128A3CE26001685BF /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,20 +501,16 @@
 				A43C032E28A423B6001685BF /* DetailItemModel.swift in Sources */,
 				A4D1A3A828CA1E6C00574CFA /* PhoneNumber.swift in Sources */,
 				A42A796428A8D63900BB1C03 /* AuthService.swift in Sources */,
-				A43C031328A3CE3E001685BF /* SearchPresenter.swift in Sources */,
 				A4D1A36F28C6222500574CFA /* ProfileStorage.swift in Sources */,
 				A43C0305289E869F001685BF /* TabBarConfiguration.swift in Sources */,
 				A42A797928A8DDD700BB1C03 /* BaseTokenContainer.swift in Sources */,
 				A4D1A36828C5FAF700574CFA /* ProfileTableViewCell.swift in Sources */,
-				A43C031028A3CE26001685BF /* SearchViewController.swift in Sources */,
 				A42A795B28A7CA0700BB1C03 /* NetworkTask.swift in Sources */,
 				A4D1A36C28C6188B00574CFA /* ProfileInfoTableViewCell.swift in Sources */,
 				A43C02F4289E855B001685BF /* MainViewController.swift in Sources */,
-				A43C031528A3CFFA001685BF /* SearchModel.swift in Sources */,
 				A42A795228A7C31600BB1C03 /* DetailTextTableViewCell.swift in Sources */,
 				A4D1A3A628CA1E4300574CFA /* ColorExtension.swift in Sources */,
 				A4D96ECA28DB3DA10060B40F /* SearchVC.swift in Sources */,
-				A43C031728A3D5BF001685BF /* SearchProtocols.swift in Sources */,
 				A43C02F9289E857B001685BF /* ProfileViewController.swift in Sources */,
 				A43C032628A41D55001685BF /* DetailTitleTableViewCell.swift in Sources */,
 				A42A798028AE27E800BB1C03 /* DataManager.swift in Sources */,

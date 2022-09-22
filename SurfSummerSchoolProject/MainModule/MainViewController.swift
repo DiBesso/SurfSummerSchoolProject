@@ -34,7 +34,6 @@ class MainViewController: UIViewController {
         
         configureApperance()
         model.loadPosts()
-//        setSearchButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,20 +59,6 @@ class MainViewController: UIViewController {
         let searchViewController = SearchVC()
         self.navigationController?.pushViewController(searchViewController, animated: true)
     }
-//    func setSearchButton() {
-//        let searchButton = UIBarButtonItem(image: UIImage(named: "searchButton"), style: .plain, target: self, action: #selector(getSearch(sender:)))
-//        searchButton.tintColor = .black
-//        navigationItem.title = tab.main.title
-//        navigationItem.rightBarButtonItem = searchButton
-//    }
-//
-//    @objc func getSearch (sender: UIBarButtonItem) {
-//        let searchController = UISearchController(searchResultsController: nil)
-//        searchController.searchBar.placeholder = "Поиск"
-//        navigationItem.searchController = searchController
-//        navigationController?.pushViewController(SearchVC(), animated: true)
-//        definesPresentationContext = true
-//    }
 }
 
 // MARK: - Private Methods

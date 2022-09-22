@@ -30,31 +30,31 @@ class FavoriteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureAppearance()
-        setSearchButton()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = false
         configureModel()
+        configureNavigationBar()
     }
     
-    //MARK: - Search Methods
-    func setSearchButton() {
-        let searchButton = UIBarButtonItem(image: UIImage(named: "searchButton"), style: .plain, target: self, action: #selector(getSearch(sender:)))
-        searchButton.tintColor = .black
-        navigationItem.title = tab.favorite.title
+    func configureNavigationBar() {
+        navigationItem.title = "Избранное"
+        let searchButton = UIBarButtonItem(
+            image: UIImage(named: "searchButton"),
+            style: .plain,
+            target: self,
+            action: #selector(enterSearchViewController(sender:))
+        )
         navigationItem.rightBarButtonItem = searchButton
+        navigationItem.rightBarButtonItem?.tintColor = ColorsExtension.black
     }
     
-    
-    @objc func getSearch (sender: UIBarButtonItem) {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.placeholder = "Поиск"
-        searchController.obscuresBackgroundDuringPresentation = false
-        navigationItem.searchController = searchController
-        navigationController?.pushViewController(SearchVC(), animated: true)
-        definesPresentationContext = true
+    @objc func enterSearchViewController(sender: UIBarButtonItem) {
+        let searchViewController = SearchVC()
+        self.navigationController?.pushViewController(searchViewController, animated: true)
     }
+ 
 }
 // MARK: - Private Methods
 

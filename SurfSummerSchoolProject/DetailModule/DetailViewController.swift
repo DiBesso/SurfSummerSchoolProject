@@ -24,7 +24,6 @@ class DetailViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         configureAppearance()
         tableView.reloadData()
-        setSearchButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,33 +42,20 @@ private extension DetailViewController {
     }
     
     func configureNavigationBar() {
-            navigationItem.title = model?.title
-            let backButton = UIBarButtonItem(image: UIImage(named: "back-arrow"),
-                                             style: .plain,
-                                             target: navigationController,
-                                             action: #selector(UINavigationController.popViewController(animated:)))
-            navigationItem.leftBarButtonItem = backButton
-            navigationItem.leftBarButtonItem?.tintColor = .black
-            navigationController?.interactivePopGestureRecognizer?.delegate = self
-        }
-    
-    //MARK: - Search Methods
-    func setSearchButton() {
-        let searchButton = UIBarButtonItem(image: UIImage(named: "searchButton"), style: .plain, target: self, action: #selector(getSearch(sender:)))
-        searchButton.tintColor = .black
-        navigationItem.title = tab.main.title
+        navigationItem.title = model?.title
+        let searchButton = UIBarButtonItem(
+            image: UIImage(named: "searchButton"),
+            style: .plain,
+            target: self,
+            action: #selector(enterSearchViewController(sender:))
+        )
         navigationItem.rightBarButtonItem = searchButton
-        
-        
+        navigationItem.rightBarButtonItem?.tintColor = ColorsExtension.black
     }
     
-    @objc func getSearch (sender: UIBarButtonItem) {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.placeholder = "Поиск"
-        searchController.obscuresBackgroundDuringPresentation = false
-        navigationItem.searchController = searchController
-        navigationController?.pushViewController(SearchVC(), animated: true)
-        definesPresentationContext = true
+    @objc func enterSearchViewController(sender: UIBarButtonItem) {
+        let searchViewController = SearchVC()
+        self.navigationController?.pushViewController(searchViewController, animated: true)
     }
     
     func configureTableView() {
