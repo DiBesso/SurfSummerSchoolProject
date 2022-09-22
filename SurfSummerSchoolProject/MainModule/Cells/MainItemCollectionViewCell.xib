@@ -17,13 +17,13 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mvd-lx-N3u">
-                        <rect key="frame" x="0.0" y="0.0" width="519" height="618.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="519" height="626.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Mvd-lx-N3u" secondAttribute="height" multiplier="168:222" priority="750" id="XBr-lb-Ypu"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceQ-rg-q90">
-                        <rect key="frame" x="0.0" y="626.5" width="519" height="14.5"/>
+                        <rect key="frame" x="0.0" y="634.5" width="519" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                 <constraint firstItem="Mvd-lx-N3u" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ItT-Qv-kUE"/>
                 <constraint firstItem="Mvd-lx-N3u" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="cPW-Wg-wL6"/>
                 <constraint firstItem="ceQ-rg-q90" firstAttribute="top" secondItem="Mvd-lx-N3u" secondAttribute="bottom" constant="8" id="e7d-ZQ-rS1"/>
-                <constraint firstAttribute="bottom" secondItem="ceQ-rg-q90" secondAttribute="bottom" constant="8" id="v61-zY-2lO"/>
+                <constraint firstAttribute="bottom" secondItem="ceQ-rg-q90" secondAttribute="bottom" id="v61-zY-2lO"/>
                 <constraint firstAttribute="trailing" secondItem="fKQ-cd-WOF" secondAttribute="trailing" constant="8" id="wxk-Pv-4Ak"/>
             </constraints>
             <size key="customSize" width="519" height="649"/>

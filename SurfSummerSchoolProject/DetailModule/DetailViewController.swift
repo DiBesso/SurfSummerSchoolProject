@@ -24,7 +24,6 @@ class DetailViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         configureAppearance()
         tableView.reloadData()
-        setSearchButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +33,6 @@ class DetailViewController: UIViewController, UIGestureRecognizerDelegate {
    
 }
 
-
 // MARK: - Private Methods
 
 private extension DetailViewController {
@@ -43,33 +41,20 @@ private extension DetailViewController {
     }
     
     func configureNavigationBar() {
-            navigationItem.title = model?.title
-            let backButton = UIBarButtonItem(image: UIImage(named: "back-arrow"),
-                                             style: .plain,
-                                             target: navigationController,
-                                             action: #selector(UINavigationController.popViewController(animated:)))
-            navigationItem.leftBarButtonItem = backButton
-            navigationItem.leftBarButtonItem?.tintColor = .black
-            navigationController?.interactivePopGestureRecognizer?.delegate = self
-        }
-    
-    func setSearchButton() {
-        let searchButton = UIBarButtonItem(image: UIImage(named: "searchButton"), style: .plain, target: self, action: #selector(getSearch(sender:)))
-        searchButton.tintColor = .black
-        navigationItem.title = tab.main.title
+        navigationItem.title = model?.title
+        let searchButton = UIBarButtonItem(
+            image: UIImage(named: "searchButton"),
+            style: .plain,
+            target: self,
+            action: #selector(enterSearchViewController(sender:))
+        )
         navigationItem.rightBarButtonItem = searchButton
-        
-        
+        navigationItem.rightBarButtonItem?.tintColor = ColorsExtension.black
     }
     
-    @objc func getSearch (sender: UIBarButtonItem) {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.placeholder = "Поиск"
-//        searchController.searchBar.showsCancelButton = false
-        searchController.obscuresBackgroundDuringPresentation = false
-        navigationItem.searchController = searchController
-        navigationController?.pushViewController(SearchViewController(), animated: true)
-        definesPresentationContext = true
+    @objc func enterSearchViewController(sender: UIBarButtonItem) {
+        let searchViewController = SearchVC()
+        self.navigationController?.pushViewController(searchViewController, animated: true)
     }
     
     func configureTableView() {
@@ -106,7 +91,7 @@ extension DetailViewController: UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "\(DetailImageTableViewCell.self)")
             if let cell = cell as? DetailImageTableViewCell {
-                cell.image = model?.image
+                cell.imageUrlInString = model?.imageUrlInString ?? ""
             }
             return cell ?? UITableViewCell()
         case 1:
@@ -114,6 +99,7 @@ extension DetailViewController: UITableViewDataSource {
             if let cell = cell as? DetailTitleTableViewCell {
                 cell.title = model?.title ?? ""
                 cell.date = model?.dateCreation ?? ""
+        
             }
             return cell ?? UITableViewCell()
         case 2:

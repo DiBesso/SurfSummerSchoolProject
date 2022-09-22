@@ -18,17 +18,15 @@ class MainItemCollectionViewCell: UICollectionViewCell {
     // MARK: - Views
     
 
-    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var favoriteButton: UIButton!
-    
+    private weak var dateLabel: UILabel!
+    private weak var contentLabel: UILabel!
     // MARK: - Events
     var didFavoritesTapped: (() -> Void)?
 
     // MARK: - Calculated
-    var buttonImage: UIImage? {
-        return isFavorite ? Constants.fillHeartImage : Constants.heartImage
-    }
 
     override var isHighlighted: Bool {
         didSet {
@@ -45,22 +43,36 @@ class MainItemCollectionViewCell: UICollectionViewCell {
         }
     }
   
-    var image: UIImage? {
+    var imageUrlInString: String = "" {
         didSet {
-            imageView.image = image
+            guard let url = URL(string: imageUrlInString) else {
+                return
+            }
+            imageView.loadImage(from: url)
         }
     }
     var isFavorite: Bool = false {
         didSet {
-            favoriteButton.setImage(buttonImage, for: .normal)
+            let image = isFavorite ? Constants.fillHeartImage : Constants.heartImage
+            favoriteButton.setImage(image , for: .normal)
         }
     }
 
+    var date: String = "" {
+        didSet {
+            dateLabel.text = date
+        }
+    }
+    var text: String? {
+        didSet {
+            contentLabel.text = text
+        }
+    }
     // MARK: - Actions
     
     @IBAction func favoriteAction(_ sender: UIButton) {
         didFavoritesTapped?()
-        isFavorite.toggle()
+//        isFavorite.toggle()
     }
 
     // MARK: - UICollectionViewCell
