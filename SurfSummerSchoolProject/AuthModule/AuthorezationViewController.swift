@@ -132,8 +132,8 @@ extension AuthorezationViewController {
         buttonConfiguration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: -16, bottom: 0, trailing: 0)
         
         showHidePasswordButton.configuration = buttonConfiguration
-//        showHidePasswordButton.setImage(ImagesExtension.passwordIsHidden, for: .normal)
-//        showHidePasswordButton.setImage(ImagesExtension.passwordIsShown, for: .selected)
+        showHidePasswordButton.setImage(UIImage(named: "passHidden"), for: .normal)
+        showHidePasswordButton.setImage(UIImage(named: "passShown"), for: .selected)
         showHidePasswordButton.addTarget(self, action: #selector(togglePasswordView), for: .touchUpInside)
         passwordTextField.rightView = showHidePasswordButton
         passwordTextField.rightViewMode = .always

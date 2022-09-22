@@ -38,6 +38,8 @@ class FavoriteViewController: UIViewController {
         configureNavigationBar()
     }
     
+    // MARK: - NavigationBar
+    
     func configureNavigationBar() {
         navigationItem.title = "Избранное"
         let searchButton = UIBarButtonItem(
@@ -99,6 +101,8 @@ private extension FavoriteViewController {
         self.present(alert, animated: true)
     }
 }
+
+// MARK: - DataSource and DelegateFlowLayout
 
 extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     

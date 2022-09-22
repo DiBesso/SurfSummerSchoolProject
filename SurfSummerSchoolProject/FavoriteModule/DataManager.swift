@@ -17,7 +17,6 @@ struct DataManager {
     
     // MARK: - Private Properties
     
-    //    static let shared = DataManager()
     private let favoriteKey = "favorite"
     private let suiteName = "com.favorite.images"
     private let userDefaults: UserDefaults
@@ -41,13 +40,7 @@ struct DataManager {
         }
         writeIntoStorage(newFavorites: favorites)
     }
-    //    func save(model: FavoriteModel) {
-    //        var contentInFavorite = fetchContentInFavorite()
-    //        contentInFavorite.append(model)
-    //
-    //        guard let data = try? JSONEncoder().encode(contentInFavorite) else { return }
-    //        userDefaults.set(data, forKey: favoriteKey)
-    //    }
+  
     
     
     func fetchContentInFavorite() -> Set<String> {
@@ -59,12 +52,7 @@ struct DataManager {
         }
         return decodeData
     }
-//    func fetchContentInFavorite() -> [FavoriteModel] {
-//        guard let data = userDefaults.object(forKey: favoriteKey) as? Data else { return [] }
-//        guard let contentInFavorite = try? JSONDecoder().decode([FavoriteModel].self, from: data) else { return [] }
-//
-//        return contentInFavorite
-//    }
+
     
     func writeIntoStorage(newFavorites: Set<String>) {
         guard let encodeData = try? JSONEncoder().encode(newFavorites) else {
@@ -82,22 +70,5 @@ struct DataManager {
         userDefaults.removeObject(forKey: favoriteKey)
         userDefaults.removeSuite(named: suiteName)
     }
-//    func deleteContentFromFavorite(at index: Int) {
-//        var contentInFavorite = fetchContentInFavorite()
-//        var content = contentInFavorite.remove(at: index)
-//        content.isFavorite.toggle()
-//
-//        guard let data = try? JSONEncoder().encode(contentInFavorite) else { return }
-//        userDefaults.set(data, forKey: favoriteKey)
-//    }
-    
-//    func changeFavoriteStatus(at index: Int) {
-//        var contentInFavorite = fetchContentInFavorite()
-//        var content = contentInFavorite.remove(at: index)
-//        content.isFavorite.toggle()
-//        contentInFavorite.insert(content, at: index)
-//
-//        guard let data = try? JSONEncoder().encode(contentInFavorite) else { return }
-//        userDefaults.set(data, forKey: favoriteKey)
-//    }
+
 }

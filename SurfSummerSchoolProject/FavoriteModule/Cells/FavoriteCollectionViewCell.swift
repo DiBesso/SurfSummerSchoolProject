@@ -26,17 +26,18 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
     // MARK: - Events
     var didFavoritesTapped: (() -> Void)?
 
-    // MARK: - Calculated
+    // MARK: - Properties
+    
     var buttonImage: UIImage? {
         return isFavorite ? Constants.fillHeartImage : Constants.heartImage
     }
-
+    
     override var isHighlighted: Bool {
         didSet {
             animationTapCell()
         }
     }
-    // MARK: - Properties
+    
     var model: DetailItemModel?
     
     var isFavorite: Bool = true {
@@ -52,7 +53,6 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
     
     @IBAction func favoriteAction(_ sender: UIButton) {
         didFavoritesTapped?()
-//        isFavorite.toggle()
     }
     
     override func awakeFromNib() {
@@ -79,6 +79,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
     }
 }
 
+// MARK: - Private methods
 
 private extension FavoriteCollectionViewCell {
     

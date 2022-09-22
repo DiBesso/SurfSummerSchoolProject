@@ -33,7 +33,6 @@ class DetailViewController: UIViewController, UIGestureRecognizerDelegate {
    
 }
 
-
 // MARK: - Private Methods
 
 private extension DetailViewController {
